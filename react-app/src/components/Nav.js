@@ -24,7 +24,7 @@ export default function Nav() {
                 <a href='/signup'><button className='nav-link' href='/signup'> Sign Up</button></a>
                 </li>
                 <li class="nav-item">
-                    <button class="nav-link" href="#">Log In</button>
+                    <a href ='/login'><button class="nav-link" href="#">Log In</button></a>
                 </li>
             </ul>
         </div>
