@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Coin, User } = require('../models');
-const withAuth = require('../utils/auth');
+const withAuth = require('../scripts/auth');
 
 router.get('/', async (req, res) => {
   try {
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
         },
       ],
     });
-
+    console.log("This is coinData:", coinData);
     // Serialize data so the template can read it
     const coins = coinData.map((coin) => coin.get({ plain: true }));
 

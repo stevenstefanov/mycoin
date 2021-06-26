@@ -1,0 +1,17 @@
+[
+    {
+        "type": "Bitcoin",
+        "amount": "0.76",
+        "date_created": "2021-05-05 16:17:50"
+    },
+    {
+        "type": "Etherium",
+        "amount": "1.5",
+        "date_created": "2021-06-05 16:23:50"
+    },
+    {
+        "type": "DogeCoin",
+        "amount": "4",
+        "date_created": "2021-06-02 16:17:50"
+    }
+]
