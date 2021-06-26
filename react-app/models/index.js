@@ -6,7 +6,7 @@ User.hasMany(Coin, {
     onDelete: 'CASCADE'
 });
 
-House.belongsTo(User, {
+Coin.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
