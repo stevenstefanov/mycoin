@@ -5,6 +5,7 @@ import Portfolio from './components/Portfolio'
 import Three from './Utils/Three.js'
 import AddAsset from './components/AddAsset'
 import SignUp from './components/SignUp'
+import Login from './components/Login'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 function App() {
@@ -27,6 +28,10 @@ function App() {
 
       <Route exact path = '/signup'>
         <SignUp/>
+      </Route>
+
+      <Route exact path ='/login'>
+        <Login/>
       </Route>
     </div>
     </Switch>

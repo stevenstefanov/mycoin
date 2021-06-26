@@ -1,10 +1,10 @@
 import * as THREE from 'three'
-import React from 'react'
+import React, {Component} from 'react'
 
 
-const Three  = ( ) => {
+class Three extends Component {
 
-
+    componentDidMount = () => {
     
         const scene = new THREE.Scene();
                     const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -12,7 +12,8 @@ const Three  = ( ) => {
                     const renderer = new THREE.WebGLRenderer();
                     renderer.setSize( window.innerWidth, window.innerHeight );
                     renderer.setClearColor("#ffffff")
-                    document.body.appendChild( renderer.domElement );
+                    // document.body.appendChild( renderer.domElement );
+                    this.mount.appendChild(renderer.domElement);
 
                     window.addEventListener('resize', () => {
                     
@@ -26,7 +27,7 @@ const Three  = ( ) => {
                 
                     
                   
-                    const geometry = new THREE.CircleGeometry(1, 30);
+                    const geometry = new THREE.CircleGeometry();
                     const material = new THREE.MeshBasicMaterial( { color: 0xffd700 } );
                     const circle = new THREE.Mesh( geometry, material );
 
@@ -49,12 +50,14 @@ const Three  = ( ) => {
                     };
 
                     animate();
+                }
     
             
-        
-        return(
-            <div></div>
-        )
-}
+        render() {
+            return(
+                <div ref={ref => this.mount = ref}></div>
+            )
+        }
+    }
 
 export default Three;
