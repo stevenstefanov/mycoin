@@ -25,26 +25,29 @@ class Three extends Component {
                     const light = new THREE.PointLight('0xffd700');
                     light.position.set(0, 0, 15)
                 
-                    
+                    const axis = new THREE.Vector3(0.5, 0.5, 0)
                   
-                    const geometry = new THREE.CircleGeometry();
+                    const geometry = new THREE.CylinderGeometry(10, 10, 1, 30);
                     const material = new THREE.MeshBasicMaterial( { color: 0xffd700 } );
                     const circle = new THREE.Mesh( geometry, material );
-
-                    const geo = new THREE.BoxGeometry()
-                    const mats = new THREE.MeshDepthMaterial({color: 0x00ffd})
-                    const box = new THREE.Mesh(geo, mats)
+                    
+                    
+                   
                     scene.add( circle );
-                    scene.add( box )
                     scene.add(light)
-                    camera.position.z = 25;
+                    camera.position.z = 50;
 
-                    const animate = function () {
+                    const animate = function () {   
                         requestAnimationFrame( animate );
 
                         
-                        circle.rotation.y += 0.01;
-                    
+                        
+                        circle.rotation.x = Math.PI / 2;
+                        
+                        circle.rotation.z += 0.01;
+                      
+                        
+
 
                         renderer.render( scene, camera );
                     };

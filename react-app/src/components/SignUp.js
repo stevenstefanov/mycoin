@@ -29,7 +29,7 @@ function SignUp() {
     
     return(
     <section className = 'sign-up-form'>
-    <form>
+    <form onSubmit={signUp}>
     <div className="mb-3">
     <label for="formGroupExampleInput" className="form-label">Email</label>
     <input type="text" className="form-control" id="formGroupExampleInput email-signup" placeholder="Example input placeholder"/>
