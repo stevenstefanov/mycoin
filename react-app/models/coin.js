@@ -1,21 +1,44 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
-const coinSchema = new Schema({
-    type: { 
-        type: String, 
-        required: true 
+class Coin extends Model {}
+
+Coin.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
-    amount: { 
-        type: Number, 
-        required: true 
+    type: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-    date: { 
-        type: Date, 
-        default: Date.now 
-    }
-});
+    amount: {
+      type: DataTypes.FLOAT,
+      allowNull: false,
+    },
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
+    },
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'coin',
+  }
+);
 
-const Coin = mongoose.model('Coin', coinSchema);
-
-export default Coin;
+module.exports = Coin;
