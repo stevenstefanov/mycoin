@@ -1,10 +1,10 @@
 import * as THREE from 'three'
-import React from 'react'
+import React, {Component} from 'react'
 
 
-const Three  = ( ) => {
+class Three extends Component {
 
-
+    componentDidMount = () => {
     
         const scene = new THREE.Scene();
                     const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -12,7 +12,8 @@ const Three  = ( ) => {
                     const renderer = new THREE.WebGLRenderer();
                     renderer.setSize( window.innerWidth, window.innerHeight );
                     renderer.setClearColor("#ffffff")
-                    document.body.appendChild( renderer.domElement );
+                    // document.body.appendChild( renderer.domElement );
+                    this.mount.appendChild(renderer.domElement);
 
                     window.addEventListener('resize', () => {
                     
@@ -24,37 +25,42 @@ const Three  = ( ) => {
                     const light = new THREE.PointLight('0xffd700');
                     light.position.set(0, 0, 15)
                 
-                    
+                    const axis = new THREE.Vector3(0.5, 0.5, 0)
                   
-                    const geometry = new THREE.CircleGeometry(1, 30);
+                    const geometry = new THREE.CylinderGeometry(10, 10, 1, 30);
                     const material = new THREE.MeshBasicMaterial( { color: 0xffd700 } );
                     const circle = new THREE.Mesh( geometry, material );
-
-                    const geo = new THREE.BoxGeometry()
-                    const mats = new THREE.MeshDepthMaterial({color: 0x00ffd})
-                    const box = new THREE.Mesh(geo, mats)
+                    
+                    
+                   
                     scene.add( circle );
-                    scene.add( box )
                     scene.add(light)
-                    camera.position.z = 25;
+                    camera.position.z = 50;
 
-                    const animate = function () {
+                    const animate = function () {   
                         requestAnimationFrame( animate );
 
                         
-                        circle.rotation.y += 0.01;
-                    
+                        
+                        circle.rotation.x = Math.PI / 2;
+                        
+                        circle.rotation.z += 0.01;
+                      
+                        
+
 
                         renderer.render( scene, camera );
                     };
 
                     animate();
+                }
     
             
-        
-        return(
-            <div></div>
-        )
-}
+        render() {
+            return(
+                <div ref={ref => this.mount = ref}></div>
+            )
+        }
+    }
 
 export default Three;
