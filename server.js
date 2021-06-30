@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3001;
 
 
 const sess = {
-  secret: 'Super secret secret',
+  secret: process.env.DBSECRET,
   cookie: {},
   resave: false,
   saveUninitialized: true,
