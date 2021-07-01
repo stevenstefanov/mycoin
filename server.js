@@ -13,9 +13,10 @@ const PORT = process.env.PORT || 3001;
 
 
 const sess = {
-  secret: 'Super secret secret',
+  secret: process.env.DBSECRET || 'Super secret secret',
   cookie: {},
   resave: false,
+  proxy: true,
   saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize
