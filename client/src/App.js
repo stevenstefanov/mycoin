@@ -7,13 +7,18 @@ import AddAsset from './components/AddAsset'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {LoginProvider, useLoginState, useLoginAction} from './Utils/loginState';
 
 function App() {
   const [assets, setAssets] = useState([])
+  const state = useLoginState()
   return (
     <Router>
+      
       <Switch>
+      <LoginProvider>
        <div className="App">
+         {console.log(LoginProvider)}
       <Nav />
       <Route exact path ='/'>
       <Three></Three>
@@ -34,7 +39,9 @@ function App() {
         <Login/>
       </Route>
     </div>
+    </LoginProvider>
     </Switch>
+    
     </Router>
   );
 }

@@ -25,15 +25,21 @@ class Three extends Component {
                     const light = new THREE.PointLight('0xffd700');
                     light.position.set(0, 0, 15)
                 
-                    const axis = new THREE.Vector3(0.5, 0.5, 0)
+                    
                   
                     const geometry = new THREE.CylinderGeometry(10, 10, 1, 30);
                     const material = new THREE.MeshBasicMaterial( { color: 0xffd700 } );
                     const circle = new THREE.Mesh( geometry, material );
+
+            
+                    
+                    
+
                     
                     
                    
                     scene.add( circle );
+                    
                     scene.add(light)
                     camera.position.z = 50;
 

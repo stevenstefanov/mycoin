@@ -1,26 +1,29 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import axios from 'axios'
+import {  useLoginAction } from '../Utils/loginState';
+
 
 function SignUp() {
+    const { loginUser } = useLoginAction();
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [name, setName] = useState('')
+    
     const  signUp = async  (e) => {
         e.preventDefault()
 
-        const email = document.querySelector('#email-signup').value.trim();
-        const password = document.querySelector('#password-signup').value.trim();
-        const firstname = document.querySelector('#firstname-signup').value.trim();
-        const sirname = document.querySelector('#sirname-signup').value.trim();
-
         if (email && password) {
-            const response = await axios.post('/api/user', {
-                firstname,
-                sirname,
+            const response = await axios.post('/api/users', {
+                name,
                 email,
                 password,
             })
 
-            if (response.ok) {
+            if (response) {
                 document.location.replace('/portfolio')
                 console.log('logged in')
+                loginUser(name)
             } else {
                 console.log('login failed')
             }
@@ -32,21 +35,19 @@ function SignUp() {
     <form onSubmit={signUp}>
     <div className="mb-3">
     <label for="formGroupExampleInput" className="form-label">Email</label>
-    <input type="text" className="form-control" id="formGroupExampleInput email-signup" placeholder="Example input placeholder"/>
+        <input className = 'form-input' type='email' value={email} onChange={(e) => {setEmail(e.target.value)}} placeholder='Email' id='email'/>
     </div>
 
     <div className="mb-3">
     <label for="formGroupExampleInput2" className="form-label">Password</label>
-    <input type="password" className="form-control" id="formGroupExampleInput2 password-signup" placeholder="Another input placeholder" />
+        <input className = 'form-input' type='password' placeholder='Password'  id='password' value={password} onChange={(e) => {setPassword(e.target.value)}}/>
     </div>
 
     <div class="row">
     <div class="col">
-        <input type="text" class="form-control" placeholder="First name" aria-label="First name" id='firstname-signup'/>
+        <input type="name" value={name} onChange={(e) => setName(e.target.value) } class="form-control" placeholder="name" aria-label=" name" id='name-signup'/>
     </div>
-    <div class="col">
-        <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" id='sirname-signup'/>
-    </div>
+ 
     </div>
 
     <button type='submit'>Submit</button>
