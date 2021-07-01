@@ -1,11 +1,17 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import Asset from './Asset'
 
+
 export default function Portfolio({ assets }) {
+
+
     return (
-        assets.map(asset => {
-            return <Asset key={asset.id} asset={asset} />
-        })
+        <div>
+
+        </div>
+        // assets.map(asset => {
+        //     return <Asset key={asset.id} asset={asset} />
+        // })
         // <div>
             
         //     <table class="table table-dark">
