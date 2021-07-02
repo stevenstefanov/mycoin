@@ -7,6 +7,7 @@ import Chart from './Utils/charts';
 import AddAsset from './components/AddAsset'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
+import Coin from './components/Rankings'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import News from './components/News';
 import {LoginProvider, useLoginState, useLoginAction} from './Utils/loginState';
@@ -14,6 +15,7 @@ import {LoginProvider, useLoginState, useLoginAction} from './Utils/loginState';
 function App() {
   const [assets, setAssets] = useState([])
   const state = useLoginState()
+
   return (
     <Router>
     
@@ -32,6 +34,10 @@ function App() {
       <Route exact path = '/portfolio'>
       <Portfolio assets = {assets}/>
       <Chart />
+      </Route>
+
+      <Route exact path = '/rankings'>
+      <Coin/>
       </Route>
 
       <Route exact path = '/signup'>
