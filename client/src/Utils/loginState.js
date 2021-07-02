@@ -5,6 +5,7 @@ const initialState = {
 }
 const StateContext = React.createContext(initialState)
 const ActionContext = React.createContext();
+
 const types = {
     LOGIN: 'LOGIN',
     LOGOUT: 'LOGOUT'
@@ -34,7 +35,7 @@ const LoginProvider = ({children}) => {
     );
 
     const loginUser = name => {
-        dispatch({ type: types.LOGIN, payload: {name, LoggedIn: true}});
+        dispatch({ type: types.LOGIN, payload: {name, loggedIn: true}});
     }
 
     const logoutUser = () => {
@@ -59,23 +60,3 @@ const useLoginAction = () => {
 }
 
 export {LoginProvider, useLoginState, useLoginAction};
-
-// const {Provider} = isLoggedIn;
-
-// function reducer(state, action) {
-//     switch(action.type) {
-//         case "":
-//     }
-// }
-
-// const LoginProvider = ({ value = [], ...props}) => {
-//     const [state, distach] = useReducer(reducer, []);
-    
-//     return <Provider value={[state, dispatch]} {...props} />
-// }
-// const useIsLoggedIn = () => {
-//     return useContext(isLoggedIn)
-// }
-
-
-// export default isLoggedIn;

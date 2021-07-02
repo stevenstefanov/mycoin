@@ -1,5 +1,6 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import {useLoginState} from '../Utils/loginState'
+import {Link} from 'react-router-dom'
 
 export default function Nav() {
 
@@ -9,27 +10,32 @@ export default function Nav() {
         <div>
             <ul className="nav justify-content-end">
                 <li className="nav-item">
-                    <a className="nav-link active" href="/home">MyCoin</a>
+                    <Link to='/home' className="nav-link">My Coin</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link active" href="/portfolio">My Portfolio</a>
+                    <Link to='/portfolio' className="nav-link"> My Portfolio </Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">Coin Rankings</a>
+                    <Link to ='/rankings' className="nav-link"> Coin Rankings </Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">My Transactions</a>
+                    <Link to='/transaction' className="nav-link">My Transactions</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">News</a>
+                    <Link to ='/news' className="nav-link">News</Link>
                 </li>
                 <li className='nav-item'>
-                <a href='/signup'><button className='nav-link' href='/signup'> Sign Up</button></a>
+                <Link to = '/signup'><button className='nav-link' href='/signup'> Sign Up</button></Link>
                 </li>
+                {!state.loggedIn ? 
                 <li className="nav-item">
-                    <a href ='/login'><button className="nav-link">Log In</button></a>
+                    <Link to = '/login'><button className="nav-link">Log In</button></Link>
                 </li>
-                {console.log(state)}
+                :
+                <li className="nav-item">
+                    <a href='/'><button className='nav-link'>logout</button></a>
+                </li>
+                }
             </ul>
         </div>
     )
