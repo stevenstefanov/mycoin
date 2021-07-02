@@ -6,12 +6,14 @@ import Three from './Utils/Three.js'
 import AddAsset from './components/AddAsset'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
+import Coin from './components/Rankings'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import {LoginProvider, useLoginState, useLoginAction} from './Utils/loginState';
 
 function App() {
   const [assets, setAssets] = useState([])
   const state = useLoginState()
+
   return (
     <Router>
       
@@ -29,6 +31,10 @@ function App() {
       
       <Route exact path = '/portfolio'>
       <Portfolio assets = {assets}/>
+      </Route>
+
+      <Route exact path = '/rankings'>
+      <Coin/>
       </Route>
 
       <Route exact path = '/signup'>
