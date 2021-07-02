@@ -8,6 +8,7 @@ import AddAsset from './components/AddAsset'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import News from './components/News';
 import {LoginProvider, useLoginState, useLoginAction} from './Utils/loginState';
 
 function App() {
@@ -15,11 +16,11 @@ function App() {
   const state = useLoginState()
   return (
     <Router>
-      
+    
       <Switch>
-      <LoginProvider>
+      
        <div className="App">
-         {console.log(LoginProvider)}
+
       <Nav />
       <Route exact path ='/'>
       <Three></Three>
@@ -40,9 +41,13 @@ function App() {
       <Route exact path ='/login'>
         <Login/>
       </Route>
+      <Route exact path ='/news'>
+        <News />
+      </Route>
     </div>
-    </LoginProvider>
+    
     </Switch>
+
     
     </Router>
   );
