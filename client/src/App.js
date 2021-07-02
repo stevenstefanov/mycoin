@@ -3,6 +3,7 @@ import './App.css';
 import Nav from './components/Nav'
 import Portfolio from './components/Portfolio'
 import Three from './Utils/Three.js'
+import Chart from './Utils/charts';
 import AddAsset from './components/AddAsset'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
@@ -29,6 +30,7 @@ function App() {
       
       <Route exact path = '/portfolio'>
       <Portfolio assets = {assets}/>
+      <Chart />
       </Route>
 
       <Route exact path = '/signup'>
