@@ -1,10 +1,21 @@
 import React from 'react'
-import {useLoginState} from '../Utils/loginState'
 import {Link} from 'react-router-dom'
+import axios from 'axios'
 
 export default function Nav() {
+    const data = sessionStorage.getItem('isLoggedIn')
+    const logout = async () => {
+  
 
-   const state = useLoginState()
+        const response = await axios.post('/api/users/logout') 
+
+        if (response) {
+            sessionStorage.setItem('isLoggedIn', false)
+            sessionStorage.clear()
+            document.location.reload()
+      
+        }
+    }
     
     return (
         <div>
@@ -24,16 +35,20 @@ export default function Nav() {
                 <li className="nav-item">
                     <Link to ='/news' className="nav-link">News</Link>
                 </li>
+                {!data && 
                 <li className='nav-item'>
-                <Link to = '/signup'><button className='nav-link' href='/signup'> Sign Up</button></Link>
+                    <Link to = '/signup'><button className='nav-link' href='/signup'> Sign Up</button></Link>
                 </li>
-                {!state.loggedIn ? 
+                }  
+
+                {!data &&
                 <li className="nav-item">
                     <Link to = '/login'><button className="nav-link">Log In</button></Link>
                 </li>
-                :
+                }
+                {data &&
                 <li className="nav-item">
-                    <a href='/'><button className='nav-link'>logout</button></a>
+                   <button className='nav-link' onClick={logout}>logout</button>
                 </li>
                 }
             </ul>
