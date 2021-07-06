@@ -9,7 +9,8 @@ function News() {
     const getNewsData = () => {
         userAPI.getNews(search)
         .then(res => {
-            setNewsData(res.data.articles)
+            console.log(res.data)
+            setNewsData(res.data.data)
             console.log(newsData)
         })
         .catch(err => {console.log(err)})
@@ -23,6 +24,17 @@ function News() {
         e.preventDefault()
         getNewsData()
     }
+    
+    const formatDate = (date) => {
+        const dateArr = date.split('-')
+        const month = dateArr[1]
+        const year = dateArr[0]
+        const dayArr = dateArr[2].split('T')
+        const day = dayArr[0]
+        const newDate = [month, day, year].join('-')
+        return newDate
+    }
+
     return(
         <div>
         <input type='text' name='search' value={search} onChange={(e) => {handleInputChange(e)}} />
@@ -31,11 +43,13 @@ function News() {
             return (
                 <article>
                     <h5>{data.title}</h5>
-                    <p>{data.author}</p>
+                    <p>Author: {data.author}</p>
+                    <p>Published: {formatDate(data.published_at)}</p>
+                    <p>{data.description}</p>
                 </article>
             
             )
-        }): <>no data</>}
+        }): <div>no data</div>}
         </div>
     )
 }
