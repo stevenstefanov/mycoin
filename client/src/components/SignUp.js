@@ -1,15 +1,12 @@
 import React, {useState} from 'react';
 import axios from 'axios'
-import { useLoginAction, useLoginState } from '../Utils/loginState';
-import {Redirect} from 'react-router-dom';
 
 function SignUp() {
-    const { loginUser } = useLoginAction();
-    const context = useLoginState()
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [name, setName] = useState('')
-    
+ 
     const  signUp = async  (e) => {
         e.preventDefault()
 
@@ -21,7 +18,8 @@ function SignUp() {
             })
            if (response) {
                console.log('okay')
-               loginUser(name)
+               sessionStorage.setItem('isLoggedIn', true)
+               document.location.replace('/home')
            }
         }
     }
@@ -30,7 +28,7 @@ function SignUp() {
     return(
         
     <section className = 'sign-up-form'>
-        {!context.loggedIn ? <form>
+        <form onSubmit={signUp}>
 
         <div className="mb-3">
         <label for="formGroupExampleInput" className="form-label">Email</label>
@@ -49,13 +47,9 @@ function SignUp() {
 
         </div>
 
-        <button type='submit' onClick={signUp}>Submit</button>
+        <button type='submit'>Submit</button>
         </form> :
-        <Redirect to={{ 
-            pathname: '/',
-            state: context.loggedIn
-        }}></Redirect> }
-    
+
     </section>
 
     )

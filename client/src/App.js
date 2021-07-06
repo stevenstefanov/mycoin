@@ -10,11 +10,10 @@ import Login from './components/Login'
 import Coin from './components/Rankings'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import News from './components/News';
-import {LoginProvider, useLoginState, useLoginAction} from './Utils/loginState';
+
 
 function App() {
   const [assets, setAssets] = useState([])
-  const state = useLoginState()
 
   return (
     <Router>

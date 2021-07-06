@@ -32,11 +32,6 @@ class Three extends Component {
                     const circle = new THREE.Mesh( geometry, material );
 
             
-                    
-                    
-
-                    
-                    
                    
                     scene.add( circle );
                     
