@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const userRoutes = require('./userRoutes');
-const coinRoutes = require('./coinRoutes');
-const coinDataRoutes = require("./coinDataRoutes")
+const userRoutes = require('./users');
+const coinRoutes = require('./coins');
+const coinDataRoutes = require("./coinData")
 
 console.log("THIS IS INDEX.JS");
 

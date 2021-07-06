@@ -7,6 +7,7 @@ import Chart from './Utils/charts';
 import AddAsset from './components/AddAsset'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
+import Coin from './components/Rankings'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import News from './components/News';
 
@@ -32,6 +33,10 @@ function App() {
       <Route exact path = '/portfolio'>
       <Portfolio assets = {assets}/>
       <Chart />
+      </Route>
+
+      <Route exact path = '/rankings'>
+      <Coin/>
       </Route>
 
       <Route exact path = '/signup'>

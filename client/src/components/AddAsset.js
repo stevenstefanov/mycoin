@@ -6,10 +6,10 @@ export default function AddAsset() {
             <form>
                 <div class="dropdown col-sm-2 col-form-label">
                     <button class="btn btn-primary dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Buy
+                        Bought
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Sell</a>
+                        <a class="dropdown-item" href="#">Sold</a>
                     </div>
                 </div>
                 <div class="form-group row">

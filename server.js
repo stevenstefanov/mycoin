@@ -1,7 +1,7 @@
-const path = require('path');
 const express = require('express');
 const session = require('express-session');
-const routes = require('./controllers');
+const routes = require('./routes');
+const path = require('path');
 
 require('dotenv').config();
 
@@ -27,7 +27,11 @@ app.use(session(sess));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "./client/build")));
+}
 
 app.use(routes);
 
