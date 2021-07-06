@@ -15,7 +15,7 @@
 - [Technologies Used](#Technologies-Used)
 
 
-## User Story
+## User Story.
 
 ```
 ```
