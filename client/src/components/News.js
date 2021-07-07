@@ -1,8 +1,9 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import userAPI from '../Utils/userAPI';
 
 
 function News() {
+
     const [search, setSearch] = useState('')
     const [newsData, setNewsData] = useState({})
 
@@ -39,7 +40,7 @@ function News() {
         <div>
         <input type='text' name='search' value={search} onChange={(e) => {handleInputChange(e)}} />
         <button onClick={handleSubmit}>Search</button>
-        {newsData.length>0 ? newsData.map(data => {
+        { newsData.length > 0 ? newsData.map(data => {
             return (
                 <article>
                     <h5>{data.title}</h5>
@@ -49,7 +50,7 @@ function News() {
                 </article>
             
             )
-        }): <div>no data</div>}
+        }): <div>no data</div> }
         </div>
     )
 }

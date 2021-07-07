@@ -24,8 +24,6 @@ function Rankings()  {
         //     setSearch(e.target.value)
         // }
 
-
-
     return (
         <div className="ranking-page">
             {/* <div className="coin-search">
