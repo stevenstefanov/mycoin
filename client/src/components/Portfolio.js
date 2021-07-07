@@ -4,9 +4,8 @@ import React from 'react'
 
 export default function Portfolio({ assets }) {
 
-
     return (
-        <></>
+        <div></div>
         // assets.map(asset => {
         //     return <Asset key={asset.id} asset={asset} />
         // })
