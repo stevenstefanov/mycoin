@@ -3,6 +3,9 @@ const { User, Coin } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
+
+  console.log("hello")
+
   try {
     // Get all coins and JOIN with user data
     const coinData = await Coin.findAll({
@@ -17,7 +20,10 @@ router.get('/', async (req, res) => {
     // const coins = coinData.map((coin) => coin.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.json(coins);
+
+    console.log(coinData)
+    
+    res.json(coinData);
   } catch (err) {
     res.status(500).json(err);
   }

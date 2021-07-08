@@ -11,11 +11,11 @@ Coin.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    type: {
+    asset: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    amount: {
+    holdings: {
       type: DataTypes.FLOAT,
       allowNull: false,
     },
@@ -31,6 +31,9 @@ Coin.init(
         key: 'id',
       },
     },
+    symbol: {
+      type: DataTypes.STRING,
+    }
   },
   {
     sequelize,
