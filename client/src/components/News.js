@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import userAPI from '../Utils/userAPI';
 
 
@@ -36,6 +36,14 @@ function News() {
         return newDate
     }
 
+    useEffect(() => {
+        userAPI.getStaticNews()
+        .then(res => {
+             console.log(res.data)
+             setNewsData(res.data.data)})
+        .catch(err => console.log(err))
+    }, [])
+
     return(
         <div>
         <input type='text' name='search' value={search} onChange={(e) => {handleInputChange(e)}} />
@@ -44,7 +52,7 @@ function News() {
             return (
                 <article>
                     <h5>{data.title}</h5>
-                    <p>Author: {data.author}</p>
+                    <p>Author: {data.author === null ? 'N/A' : data.author} </p>
                     <p>Published: {formatDate(data.published_at)}</p>
                     <p>{data.description}</p>
                 </article>
