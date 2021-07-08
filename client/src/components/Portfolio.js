@@ -1,6 +1,13 @@
+<<<<<<< Updated upstream
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
+import { indexOf } from 'lodash';
+
+=======
 import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import { indexOf } from 'lodash';
+>>>>>>> Stashed changes
 
 export default function Portfolio({ }) {
 
@@ -44,6 +51,10 @@ export default function Portfolio({ }) {
         }
     }, [userCoins])
 
+<<<<<<< Updated upstream
+    return (
+        <div className="ranking-page">
+=======
     useEffect(() => {
         axios
             .get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
@@ -66,10 +77,31 @@ export default function Portfolio({ }) {
                 </form>
             </div> */}
             {console.log(coin)}
+>>>>>>> Stashed changes
             <table class="table table-dark">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
+<<<<<<< Updated upstream
+                        <th scope="col">Coin</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Holdings</th>
+                        <th scope="col">Total Value</th>
+                    </tr>
+                </thead>
+                {fullUserData.map(data => {
+                    return (
+                        <tbody>
+                            <tr>
+                                <th scope="row">{indexOf(data)}</th>
+                                <td><img src={data.image} /> {data.asset}</td>
+                                <td>${data.price}</td>
+                                <td>{data.holdings} {data.symbol}</td>
+                                <td>${parseFloat(data.price*data.holdings).toFixed(2)}</td>
+                            </tr>
+                        </tbody>)
+                })}
+=======
                         <th scope="col">Image</th>
                         <th scope="col">Coin</th>
                         <th scope="col">Symbol</th>
@@ -88,6 +120,7 @@ export default function Portfolio({ }) {
                             <td>{data.total_volume}</td>
                         </tr>
                     </tbody>)})}
+>>>>>>> Stashed changes
             </table>
         </div>
     )
