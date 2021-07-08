@@ -1,5 +1,6 @@
 import React from 'react';
 import { Doughnut, Line } from 'react-chartjs-2';
+import './charts.css';
 
 const Chart = () => {
 
@@ -7,19 +8,19 @@ const Chart = () => {
         <div>
             <p>Bar Chart</p>
             <Doughnut 
-                // height={400}
-                // width={400}
+                // height={200}
+                // width={200}
                 data={{
-                    labels: ['Coin1', 'COin2', 'Coin3', 'Coin4', 'Coin5'],
+                    labels: ['Coin1', 'Coin2', 'Coin3', 'Coin4', 'Coin5'],
                     datasets: [{
                         label: 'My Portfolio',
                         data: [3, 1.2, 13, 4, 3],
                         backgroundColor: [
-                            'rgb(205, 99, 132, 0.2)',
-                            'rgb(155, 99, 132, 0.2)',
-                            'rgb(105, 99, 132, 0.2)',
-                            'rgb(255, 69, 132, 0.2)',
-                            'rgb(255, 29, 132, 0.2)'
+                            'rgb(0, 153, 0, 0.2)',
+                            'rgb(0, 128, 10, 0.2)',
+                            'rgb(72, 192, 19, 0.2)',
+                            'rgb(80, 153, 80, 0.2)',
+                            'rgb(20, 153, 100, 0.2)'
                         ],
                         hoverBorderWidth: 5,
                         hoverOffset: 6
@@ -27,7 +28,7 @@ const Chart = () => {
                 }}
                 options={{
                     layout: {
-                        padding: 300
+                        padding: 100
                     },
                     plugins: {
                         title: {
