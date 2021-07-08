@@ -12,6 +12,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import News from './components/News';
 
 
+
 function App() {
   const [assets, setAssets] = useState([])
 
@@ -20,12 +21,13 @@ function App() {
     
       <Switch>
       
-       <div className="App">
-
-      <Nav />
+      <div className="App">
       <Route exact path ='/'>
-      <Three></Three>
+        <Three></Three>
       </Route>
+
+  
+      <Nav />
       <Route exact path = '/home'>
       <AddAsset/>
       </Route>
@@ -49,7 +51,8 @@ function App() {
       <Route exact path ='/news'>
         <News />
       </Route>
-    </div>
+      </div>
+
     
     </Switch>
 
