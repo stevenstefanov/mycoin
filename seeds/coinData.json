@@ -1,17 +1,26 @@
 [
     {
-        "type": "Bitcoin",
-        "amount": "0.76",
+        "asset": "Bitcoin",
+        "symbol": "BTC",
+        "holdings": 1.234,
         "date_created": "2021-05-05 16:17:50"
     },
     {
-        "type": "Etherium",
-        "amount": "1.5",
+        "asset": "Ethereum",
+        "symbol": "ETH",
+        "holdings": 14.2453,
         "date_created": "2021-06-05 16:23:50"
     },
     {
-        "type": "DogeCoin",
-        "amount": "4",
+        "asset": "Dogecoin",
+        "symbol": "DOGE",
+        "holdings": 4000.1234,
+        "date_created": "2021-06-02 16:17:50"
+    },
+    {
+        "asset": "Cardano",
+        "symbol": "ADA",
+        "holdings": 1000.1234,
         "date_created": "2021-06-02 16:17:50"
     }
 ]
