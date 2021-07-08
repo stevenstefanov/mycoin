@@ -1,6 +1,9 @@
 {
   "name": "mycoin",
   "version": "1.0.0",
+  "engines": {
+    "node": "15.x"
+  },
   "description": "Project3",
   "main": "server.js",
   "scripts": {
@@ -33,7 +36,8 @@
     "mysql2": "^2.2.5",
     "request": "^2.88.2",
     "request-promise": "^4.2.6",
-    "sequelize": "^6.6.4"
+    "sequelize": "^6.6.4",
+    "three-orbit-controls": "^82.1.0"
   },
   "devDependencies": {
     "concurrently": "^6.2.0",
