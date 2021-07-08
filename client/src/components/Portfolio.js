@@ -1,7 +1,13 @@
+<<<<<<< Updated upstream
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { indexOf } from 'lodash';
 
+=======
+import React, {useState, useEffect} from 'react'
+import axios from 'axios';
+import { indexOf } from 'lodash';
+>>>>>>> Stashed changes
 
 export default function Portfolio({ }) {
 
@@ -45,12 +51,38 @@ export default function Portfolio({ }) {
         }
     }, [userCoins])
 
+<<<<<<< Updated upstream
     return (
         <div className="ranking-page">
+=======
+    useEffect(() => {
+        axios
+            .get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
+            .then(res => {
+                console.log(res.data)
+            setCoin(res.data)
+             //deconstruct res.data
+        })
+        .catch (error => console.log(error))
+    }, [])
+
+
+    return (
+        
+        <div className="ranking-page">
+            {/* <div className="coin-search">
+                <h1 className="coin-text">Search a Currency</h1>
+                <form>
+                    <input type="text" placeholder="search" className="coin-input"/>
+                </form>
+            </div> */}
+            {console.log(coin)}
+>>>>>>> Stashed changes
             <table class="table table-dark">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
+<<<<<<< Updated upstream
                         <th scope="col">Coin</th>
                         <th scope="col">Price</th>
                         <th scope="col">Holdings</th>
@@ -69,6 +101,26 @@ export default function Portfolio({ }) {
                             </tr>
                         </tbody>)
                 })}
+=======
+                        <th scope="col">Image</th>
+                        <th scope="col">Coin</th>
+                        <th scope="col">Symbol</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Volume</th>
+                    </tr>
+                </thead>
+                {coin.map(data => {return(
+                    <tbody>
+                        <tr>
+                            <th scope="row">{indexOf(data)}</th>
+                            <td><img src={data.image}/></td>
+                            <td>{data.name}</td>
+                            <td>{data.symbol}</td>
+                            <td>${data.current_price}</td>
+                            <td>{data.total_volume}</td>
+                        </tr>
+                    </tbody>)})}
+>>>>>>> Stashed changes
             </table>
         </div>
     )
