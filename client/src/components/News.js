@@ -5,7 +5,10 @@ import userAPI from '../Utils/userAPI';
 function News() {
 
     const [search, setSearch] = useState('')
-    const [newsData, setNewsData] = useState({})
+    const [newsData, setNewsData] = useState({
+        news: [],
+        order: 'ascending'
+    })
 
     const getNewsData = () => {
         userAPI.getNews(search)
@@ -20,6 +23,7 @@ function News() {
     const handleInputChange = (e) => {
         const value = e.target.value
         setSearch(value)
+ 
     }
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -35,7 +39,7 @@ function News() {
         const newDate = [month, day, year].join('-')
         return newDate
     }
-
+ 
     useEffect(() => {
         userAPI.getStaticNews()
         .then(res => {

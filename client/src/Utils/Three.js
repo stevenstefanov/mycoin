@@ -4,6 +4,7 @@ import {OrbitControls} from "three/examples/jsm/controls/OrbitControls"
 import coinSnip from './images/coinsnip.PNG'
 import background from './images/blackgradient.jpg'
 import LandingPage from '../components/LandingPage'
+import Text from './images/Drawing.sketchpad.jpeg'
 
 class Three extends Component {
 
@@ -16,8 +17,14 @@ class Three extends Component {
 
                     const pivot = new THREE.Object3D();
                     
-
                     const renderer = new THREE.WebGLRenderer();
+
+                    const canvas = document.querySelector('canvas.webgl')
+
+                    // const canvas = renderer.domElement;
+                    // const width = canvas.clientWidth;
+                    // const height = canvas.clientHeight
+
                     renderer.setSize( window.innerWidth, window.innerHeight );
                     renderer.setClearColor("#000000")
                     // document.body.appendChild( renderer.domElement );
@@ -31,14 +38,14 @@ class Three extends Component {
                     })
                    
                     // const ambientLight = new THREE.AmbientLight(0xffffff, 0);
-                    const spotLight = new THREE.SpotLight(0xffffff, 1)
-                    const pointLight = new THREE.PointLight(0xffffff, 1)
+                    const spotLight = new THREE.SpotLight(0xffffff, 1.7)
+                    // const pointLight = new THREE.PointLight(0xffffff, 0)
 
                     // const helper = new THREE.SpotLightHelper(spotLight)
                     
                     // ambientLight.position.set(35, 0, 0)
 
-                    spotLight.position.set( 40 ,50, 300)
+                    spotLight.position.set( 40 ,50, 100)
                     spotLight.rotation.x = Math.PI / 2
                 
                     // const loader = new THREE.FontLoader();
@@ -112,10 +119,12 @@ class Three extends Component {
                     const geometry = new THREE.CylinderGeometry(25, 25, 1, 30);
                     const material = new THREE.MeshStandardMaterial( {map: texture, color: 0xffd700, metalness: 1, metalnessMap: texture, bumpMap: texture } )
                     const circle = new THREE.Mesh( geometry, material );
+                    circle.position.set(55, 0 , -50 )
 
                     const smallGeo = new THREE.CylinderGeometry(7, 7, 1, 30);
                     const mats = new THREE.MeshStandardMaterial( {map: texture, metalness: 1, metalnessMap: texture, bumpMap: texture} );
                     const smallCoin = new THREE.Mesh(smallGeo, mats)
+                    smallCoin.position.set(70, 0, 0)
 
                     const lineMats = new THREE.LineBasicMaterial()
                     const lineGeo = new THREE.CircleGeometry(0 , 0)
@@ -127,25 +136,69 @@ class Three extends Component {
                     orbit.add(line)
                     orbit.add(smallCoin)
                     orbit.rotateOnAxis(axis, 20)
+                    orbit.position.set(65, 0, -60)
 
                     pivot.add(circle)
 
-                    scene.add(spotLight, circle , orbit, pointLight)
+                    scene.add(spotLight, circle , orbit)
 
-                    camera.position.z = 100;
+                    camera.position.z = 75;
+
+                    const objs = []
+                    scene.traverse((object) => {
+                        if(object.isMesh) {
+                            objs.push(object)
+
+                        }
+                    })
+                    //mouse
+                    const mouse = new THREE.Vector2()
+                    
+                    window.addEventListener('mouseover', (event) => {
+                        mouse.x = (event.clientX / window.innerWidth) * 2 - 1
+                        mouse.y = - (event.clientY / window.innerHeight) * 2 - 1
+                    })
+
+                    //raycaster
+                    const raycaster = new THREE.Raycaster()
+                    
+                    const intersects = raycaster.intersectObjects(objs)
+
+                    console.log(intersects)
+
+                    for(const intersect of intersects) {
+                        // console.log(intersect)
+                    }
+
+                    window.addEventListener('wheel', onMouseWheel)
+                    let y = 0
+                    let position = 0
+
+                    function onMouseWheel(event) {
+                        y = event.deltaY *  0.2
+
+                    }
 
                     const animate = function () {   
                         requestAnimationFrame( animate );
+                        position += y
+                        y *= 0.9
 
+                        camera.position.y = position
+                        
                         circle.rotation.x = Math.PI / 2;                        
-                        // circle.rotation.z += 0.01;
-                        circle.position.set(55, 0 , -50 )
+                        
+                        raycaster.setFromCamera(mouse, camera)
+                        const intersects = raycaster.intersectObjects(objs)
 
+
+                        for(const intersect of intersects) {
+                            // console.log(intersect)
+                        }
                         smallCoin.rotation.z += 0.03  
-                        smallCoin.position.set(70, 0, 0)
+
                         
                         orbit.rotation.z += 0.01;
-                        orbit.position.set(65, 0, -60)
 
                         // orbitControls.update()
 
@@ -158,10 +211,8 @@ class Three extends Component {
             
         render() {
             return(
-                <div>
-                    <div ref={ref => this.mount = ref}>
-                        <LandingPage />
-                    </div>
+                <div ref={ref => this.mount = ref}>
+
                 </div>
             )
         }

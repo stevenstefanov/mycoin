@@ -10,6 +10,7 @@ import Login from './components/Login'
 import Coin from './components/Rankings'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import News from './components/News';
+import LandingPage from './components/LandingPage';
 
 
 
@@ -23,32 +24,38 @@ function App() {
       
       <div className="App">
       <Route exact path ='/'>
-        <Three></Three>
+        <LandingPage />
       </Route>
 
   
-      <Nav />
+      
       <Route exact path = '/home'>
+      <Nav />
       <AddAsset/>
       </Route>
       
       <Route exact path = '/portfolio'>
+      <Nav />
       <Portfolio assets = {assets}/>
       <Chart />
       </Route>
 
       <Route exact path = '/rankings'>
+      <Nav />
       <Coin/>
       </Route>
 
       <Route exact path = '/signup'>
-        <SignUp/>
+      <Nav />
+      <SignUp/>
       </Route>
 
       <Route exact path ='/login'>
+      <Nav />
         <Login/>
       </Route>
       <Route exact path ='/news'>
+        <Nav />
         <News />
       </Route>
       </div>

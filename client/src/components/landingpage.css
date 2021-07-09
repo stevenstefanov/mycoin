@@ -1,0 +1,19 @@
+
+/* #container {
+	z-index: 0;
+} */
+/* #landingWrap {
+    position: relative;
+    top: 300px;
+	z-index: 100;
+} */
+
+#info {
+    background-color: rgba(245, 245, 245, 0.829);
+	position: fixed;
+	top: 10px;
+	width: 40%;
+	text-align: center;
+	z-index: 100;
+	display:block;
+}
