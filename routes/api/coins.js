@@ -49,14 +49,31 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', withAuth,  async (req, res) => {
+  console.log('test')
+  console.log(req.body);
   try {
-    const newCoin = await Coin.create({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
+    // const newCoin = await Coin.create({
+    //   ...req.body,
+    //   user_id: req.session.user_id,
+    // });
+    console.log(req.session.user_id)
+    const coin = await Coin.findOne({ 
+      where: {
+        user_id: req.session.user_id,
+        symbol: req.body.symbol
+      }
+    })
 
-    res.status(200).json(newCoin);
+    if (coin) {
+      // update existing coin, then call coin.save()
+    }
+    else {
+      // create new coin
+    }
+
+    res.status(200).json(coin);
   } catch (err) {
+    console.log(err)
     res.status(400).json(err);
   }
 });
