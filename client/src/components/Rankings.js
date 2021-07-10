@@ -1,63 +1,69 @@
-import React, {useState, useEffect} from 'react'
-import axios from 'axios';
-import { indexOf } from 'lodash';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { indexOf } from "lodash";
 
-function Rankings()  {
-    
-    // const [search, setSearch] = useState('')
-    const [coin, setCoin] = useState([])
-    // const filteredCoins = coin.filter(coin => 
-    //     coin.name.toLowerCase().includes(search.toLowerCase())
-    //     )
+function Rankings() {
+  // const [search, setSearch] = useState('')
+  const [coin, setCoin] = useState([]);
+  // const filteredCoins = coin.filter(coin =>
+  //     coin.name.toLowerCase().includes(search.toLowerCase())
+  //     )
 
-    useEffect(() => {
-        axios
-            .get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
-            .then(res => {
-                console.log(res.data)
-            setCoin(res.data)
-             //deconstruct res.data
-        })
-        .catch (error => console.log(error))
-    }, [])
-    
-        // const handleChange = e => {
-        //     setSearch(e.target.value)
-        // }
+  useEffect(() => {
+    axios
+      .get(
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+      )
+      .then((res) => {
+        console.log(res.data);
+        setCoin(res.data);
+        //deconstruct res.data
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
-    return (
-        <div className="ranking-page">
-            {/* <div className="coin-search">
+  // const handleChange = e => {
+  //     setSearch(e.target.value)
+  // }
+
+  return (
+    <div className="ranking-page">
+      {/* <div className="coin-search">
                 <h1 className="coin-text">Search a Currency</h1>
                 <form>
                     <input type="text" placeholder="search" className="coin-input"/>
                 </form>
             </div> */}
-            {console.log(coin)}
-            <table class="table table-dark">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Coin</th>
-                        <th scope="col">Symbol</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Volume</th>
-                    </tr>
-                </thead>
-                {coin.map(data => {return(
-                    <tbody>
-                        <tr>
-                            <th scope="row">{indexOf(data)}</th>
-                            <td><img src={data.image}/></td>
-                            <td>{data.name}</td>
-                            <td>{data.symbol}</td>
-                            <td>${data.current_price}</td>
-                            <td>{data.total_volume}</td>
-                        </tr>
-                    </tbody>)})}
-            </table>
-{/*                 
+      {console.log(coin)}
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Image</th>
+            <th scope="col">Coin</th>
+            <th scope="col">Symbol</th>
+            <th scope="col">Price</th>
+            <th scope="col">Volume</th>
+          </tr>
+        </thead>
+        {coin.map((data) => {
+          return (
+            <tbody>
+              <tr>
+                <th scope="row">{indexOf(data)}</th>
+                <td>
+                  <img src={data.image} />
+                </td>
+                <td>{data.name}</td>
+                <td>{data.symbol}</td>
+                <td>${data.current_price}</td>
+                <td>{data.total_volume}</td>
+              </tr>
+            </tbody>
+          );
+        })}
+      </table>
+      {/*                 
                 // <div>
                 //     <img src={data.image}/> 
                 //     {data.name}, 
@@ -65,8 +71,8 @@ function Rankings()  {
                 //     {data.current_price}, 
                 //     {data.total_volume}
                 // </div> */}
-                
-            {/* {filteredCoins.map(coin => {
+
+      {/* {filteredCoins.map(coin => {
                 return (
                     <Assets
                         key={coin.id} 
@@ -78,7 +84,7 @@ function Rankings()  {
                     </Assets>
                 )
             })} */}
-            {/* <div className="coin-container">
+      {/* <div className="coin-container">
                 <div className="coin-row">
                     <div className="coin">
                         <img src={image} alt="coin-image"/>
@@ -92,9 +98,8 @@ function Rankings()  {
                     </div>
                 </div>
             </div> */}
-        </div>
-    )
+    </div>
+  );
 }
-
 
 export default Rankings;

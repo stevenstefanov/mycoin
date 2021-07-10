@@ -29,17 +29,14 @@ router.get('/', async (req, res) => {
   }
 });
 
-
 router.get('/:symbol', async (req, res) => {
   try {
-    const coinData = await Coin.findOne(req.body.symbol, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
+    const coinData = await Coin.findOne({ 
+        where: {
+          user_id: req.session.user_id,
+          symbol: req.body.symbol
+        }
+      });
     console.log(coinData);
     const coin = coinData.get({ plain: true });
     console.log(coin);
@@ -56,16 +53,30 @@ router.post('/', withAuth,  async (req, res) => {
       user_id: req.session.user_id,
     });
 
+    // console.log(req.session.user_id)
+    // const coin = await Coin.findOne({ 
+    //   where: {
+    //     user_id: req.session.user_id,
+    //     symbol: req.body.symbol
+    //   }
+    // })
+
+    // if (coin) {
+    //   // update existing coin, then call coin.save()
+    // }
+    // else {
+    //   // create new coin
+    // }
     res.status(200).json(newCoin);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:symbol', async (req, res) => {
   try {
     const coin  = await Coin.increment(
-      'amount', { by: req.body.amount, where: {id: req.params.id} }
+      'holdings', { by: req.body.holdings, where: {symbol: req.body.symbol} }
     )
     res.status(200).json(coin);
   } catch (err) {
