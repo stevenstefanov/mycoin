@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const API = {
+
     postNewTransaction: (form, symbol) => {
         const coin = axios.get(`/api/coins/${symbol}`);
         console.log("Coin log!!!", coin);
@@ -9,6 +10,9 @@ const API = {
         } else if (coin === 200) {
             return axios.put("/api/coins/", form)
         }
+
+    postNewTransaction: form => {
+
     }
 }
 
