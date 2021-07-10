@@ -59,11 +59,11 @@ export default function Portfolio({}) {
             <th scope="col">Total Value</th>
           </tr>
         </thead>
-        {fullUserData.map((data) => {
+        {fullUserData.map((data, i) => {
           return (
             <tbody>
               <tr>
-                <th scope="row">{indexOf(data)}</th>
+                <th scope="row">{i+1}</th>
                 <td>
                   <img src={data.image} /> {data.asset}
                 </td>

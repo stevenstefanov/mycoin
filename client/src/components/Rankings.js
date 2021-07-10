@@ -46,11 +46,11 @@ function Rankings() {
             <th scope="col">Volume</th>
           </tr>
         </thead>
-        {coin.map((data) => {
+        {coin.map((data, i) => {
           return (
             <tbody>
               <tr>
-                <th scope="row">{indexOf(data)}</th>
+                <th scope="row">{i+1}</th>
                 <td>
                   <img src={data.image} />
                 </td>

@@ -8,7 +8,7 @@ export default function AddAsset() {
     const [ symbolList, setSymbolList ] = useState([])
     // const [ coinMap, setCoinMap ] = useState({});
     const [ formInputs, setFormInputs ] = useState({ })
-    const {symbol} = useParams()
+    // const {symbol} = useParams()
     
   useEffect(() => {
     console.log('test')
@@ -82,15 +82,15 @@ export default function AddAsset() {
                 </div>
 
                 <div className="form-group row">
-                    <label htmlFor="holdings" className="col-sm-2 col-form-label">Amount Purchased</label>
+                    <label htmlFor="asset" className="col-sm-2 col-form-label">Asset Name</label>
                     <div className="col-sm-10">
-                    <input onChange={handleInputChange} className="form-control" name="holdings" placeholder=".5344"/>
+                    <input onChange={handleInputChange} className="form-control" name="asset" placeholder=".5344"/>
                      </div>
                 </div>
                 <div class="form-group row">
-                    <label for="amountPurchased" class="col-sm-2 col-form-label">Amount Purchased</label>
+                    <label for="holdings" class="col-sm-2 col-form-label">Amount Purchased</label>
                     <div class="col-sm-10">
-                    <input onChange={handleInputChange} class="form-control" name="amountPurchased" placeholder=".5344"/>
+                    <input onChange={handleInputChange} class="form-control" name="holdings" placeholder=".5344"/>
                     </div>
                 </div>
                 <div class="form-group row">
