@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import {useParams} from 'react-router-dom'
 import API from "../Utils/API"
 import axios from 'axios';
 
@@ -7,6 +8,8 @@ export default function AddAsset() {
     const [ symbolList, setSymbolList ] = useState([])
     // const [ coinMap, setCoinMap ] = useState({});
     const [ formInputs, setFormInputs ] = useState({ })
+    const {symbol} = useParams()
+    
 
     useEffect(() => {
         console.log('test')
@@ -47,7 +50,7 @@ export default function AddAsset() {
         e.preventDefault()
         if (symbolList.includes(formInputs.symbol)) {
             // formInputs.asset = coinMap[formInputs.symbol];
-            API.postNewTransaction(formInputs)
+            API.postNewTransaction(formInputs, formInputs.symbol)
             // .then(window.location.replace("/portfolio"))
         } else {
             window.alert("Please provide a valid symbol")
@@ -82,9 +85,9 @@ export default function AddAsset() {
                     </div>
                 </div>
                 <div className="form-group row">
-                    <label htmlFor="amountPurchased" className="col-sm-2 col-form-label">Amount Purchased</label>
+                    <label htmlFor="holdings" className="col-sm-2 col-form-label">Amount Purchased</label>
                     <div className="col-sm-10">
-                    <input onChange={handleInputChange} className="form-control" name="amountPurchased" placeholder=".5344"/>
+                    <input onChange={handleInputChange} className="form-control" name="holdings" placeholder=".5344"/>
                     </div>
                 </div>
                 <div className="form-group row">
