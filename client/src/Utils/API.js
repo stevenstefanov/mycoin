@@ -11,9 +11,10 @@ const API = {
             return axios.put("/api/coins/", form)
         }
 
-    postNewTransaction: form => {
+    // postNewTransaction: form => {
 
-    }
+    // }
+}
 }
 
 export default API;
