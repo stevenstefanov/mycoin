@@ -5,6 +5,7 @@ import coinSnip from './images/coinsnip.PNG'
 import background from './images/blackgradient.jpg'
 import LandingPage from '../components/LandingPage'
 import Text from './images/Drawing.sketchpad.jpeg'
+import { Html } from '@react-three/drei'
 
 class Three extends Component {
 

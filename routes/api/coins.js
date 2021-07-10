@@ -30,9 +30,9 @@ router.get('/', async (req, res) => {
 });
 
 
-router.get('/:id', async (req, res) => {
+router.get('/:symbol', async (req, res) => {
   try {
-    const coinData = await Coin.findByPk(req.params.id, {
+    const coinData = await Coin.findOne(req.body.symbol, {
       include: [
         {
           model: User,
