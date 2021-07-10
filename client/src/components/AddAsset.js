@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import API from "../Utils/API";
 import React, {useEffect, useState} from 'react'
+import {useParams} from 'react-router-dom'
 import API from "../Utils/API"
 
 
@@ -8,6 +9,12 @@ export default function AddAsset() {
   const [symbolList, setSymbolList] = useState([]);
   const [formInputs, setFormInputs] = useState({});
 
+
+    const [ symbolList, setSymbolList ] = useState([])
+    // const [ coinMap, setCoinMap ] = useState({});
+    const [ formInputs, setFormInputs ] = useState({ })
+    const {symbol} = useParams()
+    
 
   useEffect(() => {
     // get list of all valid cryptocurrency symbols
@@ -34,6 +41,9 @@ export default function AddAsset() {
     const handleSubmit = (e) => {
         e.preventDefault()
         if (symbolList.includes(formInputs.symbol)) {
+            // formInputs.asset = coinMap[formInputs.symbol];
+            API.postNewTransaction(formInputs, formInputs.symbol)
+            // .then(window.location.replace("/portfolio"))
             API.postNewTransaction(formInputs)
             .then(window.location.replace("/portfolio"))
         } else {
@@ -140,6 +150,12 @@ export default function AddAsset() {
                     <input onChange={handleInputChange} class="form-control" name="symbol" placeholder="BTC"/>
                     </div>
                 </div>
+
+                <div className="form-group row">
+                    <label htmlFor="holdings" className="col-sm-2 col-form-label">Amount Purchased</label>
+                    <div className="col-sm-10">
+                    <input onChange={handleInputChange} className="form-control" name="holdings" placeholder=".5344"/>
+
                 <div class="form-group row">
                     <label for="amountPurchased" class="col-sm-2 col-form-label">Amount Purchased</label>
                     <div class="col-sm-10">
