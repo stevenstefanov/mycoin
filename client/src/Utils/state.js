@@ -1,6 +1,10 @@
-import React from 'react'
+import { createRef } from "react"
 
-const stateThing = React.createContext({})
+const state = {
+  sections: 3,
+  pages: 3,
+  zoom: 75,
+  top: createRef()
+}
 
-
-export default stateThing;
+export default state;

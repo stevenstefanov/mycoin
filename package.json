@@ -27,17 +27,25 @@
   },
   "homepage": "https://github.com/ssharmin0029/project-3#readme",
   "dependencies": {
+    "@react-three/cannon": "^2.5.0",
+    "@react-three/drei": "^7.0.6",
+    "@react-three/fiber": "^7.0.4",
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.1",
     "dotenv": "^10.0.0",
+    "drei": "^2.2.21",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "if-env": "^1.0.4",
     "mysql2": "^2.2.5",
+    "react-promise-suspense": "^0.3.3",
     "request": "^2.88.2",
     "request-promise": "^4.2.6",
     "sequelize": "^6.6.4",
-    "three-orbit-controls": "^82.1.0"
+    "three": "^0.130.1",
+    "three-orbit-controls": "^82.1.0",
+    "three-stdlib": "^2.3.1",
+    "use-cannon": "^0.5.3"
   },
   "devDependencies": {
     "concurrently": "^6.2.0",
