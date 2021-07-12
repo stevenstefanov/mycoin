@@ -1,25 +1,25 @@
 [
     {
         "asset": "Bitcoin",
-        "symbol": "BTC",
+        "symbol": "btc",
         "holdings": 1.234,
         "date_created": "2021-05-05 16:17:50"
     },
     {
         "asset": "Ethereum",
-        "symbol": "ETH",
+        "symbol": "eth",
         "holdings": 14.2453,
         "date_created": "2021-06-05 16:23:50"
     },
     {
         "asset": "Dogecoin",
-        "symbol": "DOGE",
+        "symbol": "doge",
         "holdings": 4000.1234,
         "date_created": "2021-06-02 16:17:50"
     },
     {
         "asset": "Cardano",
-        "symbol": "ADA",
+        "symbol": "ada",
         "holdings": 1000.1234,
         "date_created": "2021-06-02 16:17:50"
     }
