@@ -96,7 +96,7 @@ const Chart = () => {
                             font: {
                                 size: 22
                             },
-                            text: 'Coin Distribution'
+                            text: 'Portfolio Breakdown'
                         }
                     }
                 }}
@@ -116,6 +116,15 @@ const Chart = () => {
                 options={{
                     layout: {
                         padding: 100
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            font: {
+                                size: 22
+                            },
+                            text: 'Coin Net Worth'
+                        }
                     }
                 }}
             />
