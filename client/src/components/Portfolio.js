@@ -49,10 +49,11 @@ export default function Portfolio({}) {
 
   return (
     <div className="ranking-page">
-      <table class="table table-dark">
+      <table class="table">
         <thead>
           <tr>
             <th scope="col">#</th>
+            <th scope="col">Image</th>
             <th scope="col">Coin</th>
             <th scope="col">Price</th>
             <th scope="col">Holdings</th>
@@ -63,9 +64,12 @@ export default function Portfolio({}) {
           return (
             <tbody>
               <tr>
-                <th scope="row">{i+1}</th>
+                <th scope="row">{i + 1}</th>
                 <td>
-                  <img src={data.image} /> {data.asset}
+                  <img className="logos" src={data.image} alt="" /> 
+                </td>
+                <td>
+                  {data.asset}
                 </td>
                 <td>${data.price}</td>
                 <td>

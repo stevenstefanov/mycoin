@@ -65,11 +65,8 @@ const Chart = () => {
     // first check how many assets there are, then based on the number of assets create a shade that is #00acd7 and add 50 shade each time until it generates enough colors
 
     return (
-        <div>
-            <p>Bar Chart</p>
-            <Doughnut 
-                // height={200}
-                // width={200}
+        <div className="chart-size">
+            <Doughnut
                 data={{
                     labels: assetNames,
                     datasets: [{
@@ -96,7 +93,7 @@ const Chart = () => {
                             font: {
                                 size: 22
                             },
-                            text: 'Coin Distribution'
+                            text: 'Portfolio Breakdown'
                         }
                     }
                 }}
@@ -116,6 +113,15 @@ const Chart = () => {
                 options={{
                     layout: {
                         padding: 100
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            font: {
+                                size: 22
+                            },
+                            text: 'Coin Net Worth'
+                        }
                     }
                 }}
             />

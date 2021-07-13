@@ -13,6 +13,11 @@
       "name": "Barry",
       "email": "barry@aol.com",
       "password": "password12345"
+    },
+    {
+      "name": "Steven",
+      "email": "steven1@gmail.com",
+      "password": "password123"
     }
   ]
   
