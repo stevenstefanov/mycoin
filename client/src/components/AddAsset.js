@@ -104,7 +104,7 @@ export default function AddAsset() {
               onChange={handleInputChange}
               className="form-control"
               name="asset"
-              placeholder=".5344"
+              placeholder="Bitcoin"
             />
           </div>
         </div>
