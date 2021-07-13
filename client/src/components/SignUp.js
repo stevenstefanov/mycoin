@@ -26,6 +26,20 @@ function SignUp() {
   return (
     <section className="sign-up-form">
       <form onSubmit={signUp}>
+        <div class="row">
+          <div class="col">
+            <input
+              type="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              class="form-control"
+              placeholder="name"
+              aria-label=" name"
+              id="name-signup"
+            />
+          </div>
+        </div>
+
         <div className="mb-3">
           <label for="formGroupExampleInput" className="form-label">
             Email
@@ -56,20 +70,6 @@ function SignUp() {
               setPassword(e.target.value);
             }}
           />
-        </div>
-
-        <div class="row">
-          <div class="col">
-            <input
-              type="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              class="form-control"
-              placeholder="name"
-              aria-label=" name"
-              id="name-signup"
-            />
-          </div>
         </div>
 
         <button type="submit">Submit</button>

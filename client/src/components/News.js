@@ -58,9 +58,9 @@ function News() {
         newsData.map((data) => {
           return (
             <article>
-              <img src={data.image} />
+              <img src={data.image} alt="" />
               <h5>
-                <a href={data.url} target="_blank">
+                <a href={data.url} target="_blank" rel="noreferrer">
                   {data.title}
                 </a>
               </h5>

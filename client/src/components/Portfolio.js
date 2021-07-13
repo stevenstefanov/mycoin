@@ -63,9 +63,9 @@ export default function Portfolio({}) {
           return (
             <tbody>
               <tr>
-                <th scope="row">{i+1}</th>
+                <th scope="row">{i + 1}</th>
                 <td>
-                  <img src={data.image} /> {data.asset}
+                  <img src={data.image} alt="" /> {data.asset}
                 </td>
                 <td>${data.price}</td>
                 <td>
