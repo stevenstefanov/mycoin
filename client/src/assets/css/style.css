@@ -56,10 +56,6 @@ body {
   background-color: var(--color);
 }
 
-/* .login .sign-in-content {
-  text-align: center;
-} */
-
 .card-body {
   margin-top: 30px;
   text-align: center;
@@ -80,6 +76,11 @@ body {
 .sign-up-form {
   min-height: 100vh;
   background-color: var(--color);
+}
+
+.input-group .sign-up {
+  width: 30%;
+  margin-left: 35%;
 }
 
 /* //Rankings.js and Portfolio.js */

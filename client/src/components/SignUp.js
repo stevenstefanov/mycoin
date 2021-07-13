@@ -29,22 +29,18 @@ function SignUp() {
         <div className="card-body">
           <h5 className="card-title">Sign Up</h5>
           <form onSubmit={signUp}>
-            <div class="row">
-              <div class="col">
-                <input
-                  type="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  class="form-control"
-                  placeholder="Full Name"
-                  aria-label=" name"
-                  id="name-signup"
-                />
-              </div>
-            </div>
-
             <div className="input-group mb-3 sign-up">
-              <label for="formGroupExampleInput" className="form-label"></label>
+              <input
+                type="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                class="form-control"
+                placeholder="Full Name"
+                aria-label=" name"
+                id="name-signup"
+              />
+            </div>
+            <div className="input-group mb-3 sign-up">
               <input
                 className="form-control"
                 type="email"
@@ -58,10 +54,6 @@ function SignUp() {
             </div>
 
             <div className="input-group mb-3 sign-up">
-              <label
-                for="formGroupExampleInput2"
-                className="form-label"
-              ></label>
               <input
                 className="form-control"
                 type="password"
