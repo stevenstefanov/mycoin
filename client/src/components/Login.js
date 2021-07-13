@@ -26,7 +26,7 @@ function Login() {
 
   return (
     <section className="login">
-      <div className="input-group mb-3 sign-in-content">
+      <div className="input-group mb-3 signu-in-content">
         <div className="card-body">
           <h5 className="card-title">Sign In</h5>
           <form className="login-form" onSubmit={login}>

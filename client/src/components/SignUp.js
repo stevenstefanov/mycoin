@@ -25,56 +25,61 @@ function SignUp() {
 
   return (
     <section className="sign-up-form">
-      <form onSubmit={signUp}>
-        <div class="row">
-          <div class="col">
-            <input
-              type="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              class="form-control"
-              placeholder="name"
-              aria-label=" name"
-              id="name-signup"
-            />
-          </div>
-        </div>
+      <div className="input-group mb-3 sign-up-content">
+        <div className="card-body">
+          <h5 className="card-title">Sign Up</h5>
+          <form onSubmit={signUp}>
+            <div class="row">
+              <div class="col">
+                <input
+                  type="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  class="form-control"
+                  placeholder="Full Name"
+                  aria-label=" name"
+                  id="name-signup"
+                />
+              </div>
+            </div>
 
-        <div className="mb-3">
-          <label for="formGroupExampleInput" className="form-label">
-            Email
-          </label>
-          <input
-            className="form-input"
-            type="email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            placeholder="Email"
-            id="email"
-          />
-        </div>
+            <div className="input-group mb-3 sign-up">
+              <label for="formGroupExampleInput" className="form-label"></label>
+              <input
+                className="form-control"
+                type="email"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+                placeholder="Email"
+                id="email"
+              />
+            </div>
 
-        <div className="mb-3">
-          <label for="formGroupExampleInput2" className="form-label">
-            Password
-          </label>
-          <input
-            className="form-input"
-            type="password"
-            placeholder="Password"
-            id="password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-        </div>
+            <div className="input-group mb-3 sign-up">
+              <label
+                for="formGroupExampleInput2"
+                className="form-label"
+              ></label>
+              <input
+                className="form-control"
+                type="password"
+                placeholder="Password"
+                id="password"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
+            </div>
 
-        <button type="submit">Submit</button>
-      </form>{" "}
-      :
+            <button type="submit" className="btn btn-outline-light btn-lg">
+              Submit
+            </button>
+          </form>{" "}
+        </div>
+      </div>
     </section>
   );
 }

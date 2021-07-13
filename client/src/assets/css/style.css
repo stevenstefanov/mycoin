@@ -50,7 +50,7 @@ body {
   background-color: var(--color);
 }
 
-/* Login/Sign In */
+/* Login/Sign-In and Sign-Up*/
 .login {
   min-height: 100vh;
   background-color: var(--color);
@@ -76,6 +76,12 @@ body {
   margin-left: 35%;
 }
 
+/* ---------------- */
+.sign-up-form {
+  min-height: 100vh;
+  background-color: var(--color);
+}
+
 /* //Rankings.js and Portfolio.js */
 .logos {
   max-height: 75px;
@@ -87,7 +93,6 @@ tr {
 }
 
 .ranking-page .table {
-  background-color: var(--color); 
+  background-color: var(--color);
   color: white;
 }
-
