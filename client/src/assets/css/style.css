@@ -75,3 +75,19 @@ body {
   width: 30%;
   margin-left: 35%;
 }
+
+/* //Rankings.js and Portfolio.js */
+.logos {
+  max-height: 75px;
+  max-width: 75px;
+}
+
+tr {
+  text-align: center;
+}
+
+.ranking-page .table {
+  background-color: var(--color); 
+  color: white;
+}
+

@@ -65,10 +65,8 @@ const Chart = () => {
     // first check how many assets there are, then based on the number of assets create a shade that is #00acd7 and add 50 shade each time until it generates enough colors
 
     return (
-        <div>
-            <Doughnut 
-                // height={200}
-                // width={200}
+        <div className="chart-size">
+            <Doughnut
                 data={{
                     labels: assetNames,
                     datasets: [{
