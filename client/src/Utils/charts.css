@@ -1,4 +1,4 @@
-.dChart {
-    height: 10px;
-    width: 10px;
+.chart-size {
+    max-width: 65%;
+    margin: auto;
   }

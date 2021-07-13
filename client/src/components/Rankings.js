@@ -35,7 +35,7 @@ function Rankings() {
                 </form>
             </div> */}
       {console.log(coin)}
-      <table class="table table-dark">
+      <table class="table">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -52,7 +52,7 @@ function Rankings() {
               <tr>
                 <th scope="row">{i + 1}</th>
                 <td>
-                  <img src={data.image} alt="" />
+                  <img className="logos" src={data.image} alt="" />
                 </td>
                 <td>{data.name}</td>
                 <td>{data.symbol}</td>
