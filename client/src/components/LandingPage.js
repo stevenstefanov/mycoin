@@ -3,13 +3,10 @@ import React from 'react';
 import './landingpage.css'
 
 function LandingPage() {
-    const style = {
-        border: '10px, dashed, navy'
-    }
+
     return(
-        <div id='container'>
-            <div id='landingWrap'>
-                <section id = 'info' style={style}>
+ 
+                <section id = 'info'>
                     <h2>
                         MyCoin
                     </h2> 
@@ -33,8 +30,8 @@ function LandingPage() {
                     <button id='login'> Log In</button>
                 </a>
                 </section> 
-            </div>
-        </div>
+
+ 
 
     )
 }
