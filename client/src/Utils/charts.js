@@ -66,7 +66,6 @@ const Chart = () => {
 
     return (
         <div>
-            <p>Bar Chart</p>
             <Doughnut 
                 // height={200}
                 // width={200}
