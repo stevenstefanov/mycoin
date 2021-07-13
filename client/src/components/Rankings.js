@@ -50,9 +50,9 @@ function Rankings() {
           return (
             <tbody>
               <tr>
-                <th scope="row">{i+1}</th>
+                <th scope="row">{i + 1}</th>
                 <td>
-                  <img src={data.image} />
+                  <img src={data.image} alt="" />
                 </td>
                 <td>{data.name}</td>
                 <td>{data.symbol}</td>

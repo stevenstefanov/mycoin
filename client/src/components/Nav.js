@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import axios from "axios";
 
 export default function Nav() {
@@ -15,61 +16,88 @@ export default function Nav() {
   };
 
   return (
-    <div>
-      <ul className="nav justify-content-end">
-        <li className="nav-item">
-          <Link to="/home" className="nav-link">
-            My Coin
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/portfolio" className="nav-link">
-            {" "}
-            My Portfolio{" "}
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/rankings" className="nav-link">
-            {" "}
-            Coin Rankings{" "}
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/transaction" className="nav-link">
-            My Transactions
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/news" className="nav-link">
-            News
-          </Link>
-        </li>
-        {!data && (
+    <nav className="navbar-light bg-light shadow-lg p-3 nav-content">
+      <div className="container-fluid">
+        <ul className="nav nav-tabs justify-content-end nav-content-list">
           <li className="nav-item">
-            <Link to="/signup">
-              <button className="nav-link" href="/signup">
-                {" "}
-                Sign Up
-              </button>
-            </Link>
+            <NavLink
+              exact
+              to="/home"
+              className="nav-link"
+              activeClassName="nav-link active"
+            >
+              My Coin
+            </NavLink>
           </li>
-        )}
+          <li className="nav-item">
+            <NavLink
+              exact
+              to="/portfolio"
+              className="nav-link"
+              activeClassName="nav-link active"
+            >
+              {" "}
+              My Portfolio{" "}
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              exact
+              to="/rankings"
+              className="nav-link"
+              activeClassName="nav-link active"
+            >
+              {" "}
+              Coin Rankings{" "}
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              exact
+              to="/transaction"
+              className="nav-link"
+              activeClassName="nav-link active"
+            >
+              My Transactions
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              exact
+              to="/news"
+              className="nav-link"
+              activeClassName="nav-link active"
+            >
+              News
+            </NavLink>
+          </li>
+          {!data && (
+            <li className="nav-item">
+              <NavLink exact to="/signup">
+                <button className="btn btn-outline-dark" href="/signup">
+                  {" "}
+                  Sign Up
+                </button>
+              </NavLink>
+            </li>
+          )}
 
-        {!data && (
-          <li className="nav-item">
-            <Link to="/login">
-              <button className="nav-link">Log In</button>
-            </Link>
-          </li>
-        )}
-        {data && (
-          <li className="nav-item">
-            <button className="nav-link" onClick={logout}>
-              logout
-            </button>
-          </li>
-        )}
-      </ul>
-    </div>
+          {!data && (
+            <li className="nav-item">
+              <NavLink exact to="/login">
+                <button className="btn btn-outline-dark">Sign In</button>
+              </NavLink>
+            </li>
+          )}
+          {data && (
+            <li className="nav-item">
+              <button className="nav-link" onClick={logout}>
+                Logout
+              </button>
+            </li>
+          )}
+        </ul>
+      </div>
+    </nav>
   );
 }
