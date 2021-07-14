@@ -26,14 +26,14 @@ export default function Nav() {
         <ul className="nav nav-tabs justify-content-end nav-content-list">
           
           <li className="nav-item">
-            <NavLink
-              exact
-              to="/"
+       
+            <a href='/' 
               className="nav-link"
-              activeClassName="nav-link active"
-            >
-              My Coin
-            </NavLink>
+              activeClassName="nav-link active">
+            My Coin
+            </a>
+
+       
           </li>
 
           <li className="nav-item">
