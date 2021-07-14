@@ -1,4 +1,4 @@
-import React, {useRef, Suspense,  useMemo, useState} from 'react'
+import React, {useRef, Suspense,  useMemo } from 'react'
 import { 
     Canvas, 
     useFrame, 
@@ -21,7 +21,7 @@ extend ({OrbitControls})
 
 
 function StarBackground() {
-    const [hovered, setHovered] = useState(false)
+    // const [hovered, setHovered] = useState(false)
 
     const ref= useRef()
 
@@ -32,7 +32,7 @@ return(
     <mesh 
     // onPointerOver={setHovered(true)} 
     // onPointerOut={setHovered(false)}
-    ref={ref} position={hovered ? [x + 10, y + 10 , z] : [x, y, z]}>
+    ref={ref} position={[x, y, z]}>
     <sphereGeometry attach='geometry' 
     args={[1, 1, 1]}  />
     <meshPhongMaterial attach='material' wireframe emissive={'red'} emissiveIntensity={1} color='red'  />
