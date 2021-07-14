@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 // import { Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import axios from "axios";
 
 export default function Nav() {
   const data = sessionStorage.getItem("isLoggedIn");
+  const [login, setLogin] = useState(false)
+
+
+
+
   const logout = async () => {
     const response = await axios.post("/api/users/logout");
 
@@ -19,16 +24,18 @@ export default function Nav() {
     <nav className="navbar-light bg-light shadow-lg p-3 nav-content">
       <div className="container-fluid">
         <ul className="nav nav-tabs justify-content-end nav-content-list">
+          
           <li className="nav-item">
             <NavLink
               exact
-              to="/home"
+              to="/"
               className="nav-link"
               activeClassName="nav-link active"
             >
               My Coin
             </NavLink>
           </li>
+
           <li className="nav-item">
             <NavLink
               exact
@@ -40,6 +47,7 @@ export default function Nav() {
               My Portfolio{" "}
             </NavLink>
           </li>
+
           <li className="nav-item">
             <NavLink
               exact
@@ -51,6 +59,7 @@ export default function Nav() {
               Coin Rankings{" "}
             </NavLink>
           </li>
+          { data && (
           <li className="nav-item">
             <NavLink
               exact
@@ -60,7 +69,8 @@ export default function Nav() {
             >
               My Transactions
             </NavLink>
-          </li>
+          </li>)}
+          
           <li className="nav-item">
             <NavLink
               exact

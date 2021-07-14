@@ -1,4 +1,4 @@
-import React, {useRef, Suspense, useEffect, useMemo, useState} from 'react'
+import React, {useRef, Suspense,  useMemo, useState} from 'react'
 import { 
     Canvas, 
     useFrame, 
@@ -6,9 +6,9 @@ import {
     render,
     useThree,
     extend,
-    useLoader,
+
 } from '@react-three/fiber'
-import { Html, Stars, PerspectiveCamera, OrbitControls} from '@react-three/drei'
+import { Html, OrbitControls} from '@react-three/drei'
 import usePromise from 'react-promise-suspense'
 import LandingPage from '../components/LandingPage'
 import * as THREE from 'three'
