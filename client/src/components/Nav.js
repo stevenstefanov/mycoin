@@ -1,14 +1,10 @@
-import React, { useState } from "react";
-// import { Link } from "react-router-dom";
-import { NavLink, Redirect } from "react-router-dom";
+import React from "react";
+
+import { NavLink } from "react-router-dom";
 import axios from "axios";
 
 export default function Nav() {
   const data = sessionStorage.getItem("isLoggedIn");
-  const [login, setLogin] = useState(false)
-
-
-
 
   const logout = async () => {
     const response = await axios.post("/api/users/logout");
