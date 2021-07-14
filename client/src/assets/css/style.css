@@ -97,3 +97,21 @@ tr {
   background-color: var(--color);
   color: white;
 }
+
+.transaction {
+  height: 100vh;
+  width: 100%;
+  background-color: var(--color);
+  color: white;
+  overflow: hidden;
+}
+.transactionCont {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#comingSoon {
+  font-size: 80px;
+}

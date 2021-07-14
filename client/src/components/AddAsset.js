@@ -64,9 +64,9 @@ export default function AddAsset() {
   return (
     <div>
       <form>
-        <div class="dropdown col-sm-2 col-form-label">
+        <div className="dropdown col-sm-2 col-form-label">
           <button
-            class="btn btn-primary dropdown-toggle "
+            className="btn btn-primary dropdown-toggle "
             type="button"
             id="dropdownMenuButton"
             data-toggle="dropdown"
@@ -75,71 +75,71 @@ export default function AddAsset() {
           >
             Bought
           </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">
+          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a className="dropdown-item" href="#">
               Sold
             </a>
           </div>
         </div>
-        <div class="form-group row">
-          <label for="symbol" class="col-sm-2 col-form-label">
+        <div className="form-group row">
+          <label for="symbol" className="col-sm-2 col-form-label">
             Asset Symbol
           </label>
-          <div class="col-sm-10">
+          <div className="col-sm-10">
             <input
               onChange={handleInputChange}
-              class="form-control"
+              className="form-control"
               name="symbol"
               placeholder="BTC"
             />
           </div>
         </div>
 
-        <div className="form-group row">
-          <label htmlFor="asset" className="col-sm-2 col-form-label">
+        <div classNameName="form-group row">
+          <label htmlFor="asset" classNameName="col-sm-2 col-form-label">
             Asset Name
           </label>
-          <div className="col-sm-10">
+          <div classNameName="col-sm-10">
             <input
               onChange={handleInputChange}
-              className="form-control"
+              classNameName="form-control"
               name="asset"
               placeholder="Bitcoin"
             />
           </div>
         </div>
-        <div class="form-group row">
-          <label for="holdings" class="col-sm-2 col-form-label">
+        <div className="form-group row">
+          <label for="holdings" className="col-sm-2 col-form-label">
             Amount Purchased
           </label>
-          <div class="col-sm-10">
+          <div className="col-sm-10">
             <input
               onChange={handleInputChange}
-              class="form-control"
+              className="form-control"
               name="holdings"
               placeholder=".5344"
             />
           </div>
         </div>
-        <div class="form-group row">
-          <label for="dollarsSpent" class="col-sm-2 col-form-label">
+        <div className="form-group row">
+          <label for="dollarsSpent" className="col-sm-2 col-form-label">
             Dollars Spent
           </label>
-          <div class="col-sm-10">
+          <div className="col-sm-10">
             <input
               onChange={handleInputChange}
-              class="form-control"
+              className="form-control"
               name="dollarsSpent"
               placeholder="$10,000"
             />
           </div>
         </div>
-        <div class="form-group row">
-          <div class="col-sm-2 col-form-label">
+        <div className="form-group row">
+          <div className="col-sm-2 col-form-label">
             <button
               onClick={handleSubmit}
               type="submit"
-              class="btn btn-primary"
+              className="btn btn-primary"
             >
               Add Transaction
             </button>

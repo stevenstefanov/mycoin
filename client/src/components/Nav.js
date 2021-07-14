@@ -23,7 +23,7 @@ export default function Nav() {
           
           <li className="nav-item">
        
-            <a href='/' 
+            <a href = '/'
               className="nav-link"
               activeClassName="nav-link active">
             My Coin
@@ -39,8 +39,8 @@ export default function Nav() {
               className="nav-link"
               activeClassName="nav-link active"
             >
-              {" "}
-              My Portfolio{" "}
+              
+              My Portfolio
             </NavLink>
           </li>
 
@@ -51,8 +51,8 @@ export default function Nav() {
               className="nav-link"
               activeClassName="nav-link active"
             >
-              {" "}
-              Coin Rankings{" "}
+              
+              Coin Rankings
             </NavLink>
           </li>
           { data && (
@@ -81,7 +81,7 @@ export default function Nav() {
             <li className="nav-item">
               <NavLink exact to="/signup">
                 <button className="btn btn-outline-dark" href="/signup">
-                  {" "}
+                  
                   Sign Up
                 </button>
               </NavLink>

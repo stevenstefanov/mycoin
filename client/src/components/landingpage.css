@@ -43,3 +43,15 @@ p {
 	left: 50px;
 	bottom: 15px;
 }
+
+#rankings {
+	position: relative;
+	left: 50px;
+	bottom: 15px;
+}
+
+#news {
+	position: relative;
+	right: 50px;
+	bottom: 15px;
+}
