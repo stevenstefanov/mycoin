@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { indexOf } from "lodash";
 
 function Rankings() {
   // const [search, setSearch] = useState('')
