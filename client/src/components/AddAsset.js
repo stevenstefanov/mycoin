@@ -1,32 +1,22 @@
 import React, { useEffect, useState } from "react";
 import API from "../Utils/API";
-// import {useParams} from 'react-router-dom'
 import axios from "axios";
 
 export default function AddAsset() {
   const [symbolList, setSymbolList] = useState([]);
-  // const [ coinMap, setCoinMap ] = useState({});
   const [formInputs, setFormInputs] = useState({});
-  // const {symbol} = useParams()
 
   useEffect(() => {
-    console.log("test");
     axios
       .get("https://api.coingecko.com/api/v3/coins/list?include_platform=false")
       .then((res) => {
-        console.log(res.data);
-        // const coinMap = res.data.reduce( (acc, coin) => ({ ...acc, [coin.symbol]: coin.name }), {})
         const coinSymbols = res.data.map((data) => {
           return data.symbol;
         });
         const coinNames = res.data.map((data) => {
           return data.name;
         });
-        // setCoinMap(coinMap);
-        // console.log(coinMap)
         setSymbolList(coinSymbols);
-        // console.log(coinSymbols)
-        // console.log(coinNames)
 
         var symbolNameArray = {};
         for (var i = 0; i < coinSymbols.length; i++) {
@@ -38,24 +28,13 @@ export default function AddAsset() {
             symbolNameArray[id] += count;
           }
         }
-
-        console.log(symbolNameArray);
       })
       .catch((error) => console.log(error));
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formInputs)
     
-  //   if (!symbolList.includes(formInputs.symbol)) {
-  //     window.alert("Please provide a valid symbol");
-  //   } else if (formInputs.value === "bought") {
-  //     API.postNewTransaction(formInputs, formInputs.symbol);
-  //   } else if (formInputs.value === "sold") {
-  //     API.postNewSale(formInputs, formInputs.symbol);
-  //   };
-  // }
     if ((symbolList.includes(formInputs.symbol)) && (formInputs.transactionType === "bought")) {
       API.postNewTransaction(formInputs, formInputs.symbol);
     } else if ((symbolList.includes(formInputs.symbol)) && (formInputs.transactionType === "sold")) {

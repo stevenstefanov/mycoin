@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Doughnut, Line } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
 import './charts.css';
 
 
