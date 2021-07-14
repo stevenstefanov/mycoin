@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useHistory } from "react-router";
 
 export default function Portfolio() {
   const [coinGecko, setCoinGecko] = useState({});
+  const history = useHistory();
   const [userCoins, setUserCoins] = useState([]);
   const [fullUserData, setFullUserData] = useState([]);
 
@@ -42,40 +44,39 @@ export default function Portfolio() {
         };
         return obj;
       });
-      setFullUserData(data)
-  }
+      setFullUserData(data);
+    }
   }, [userCoins]);
 
   const addTransaction = () => {
-    document.location.replace('/home')
+    history.push("/home");
+  };
+
+  let totalSum = 0;
+
+  const assetValues = fullUserData.map((data) => {
+    return parseFloat(data.price * data.holdings).toFixed(2);
+  });
+
+  for (var i = 0; i < assetValues.length; i++) {
+    totalSum += +assetValues[i];
   }
 
-  let totalSum = 0
-  
-  const assetValues = fullUserData.map(data => {
-    return(
-      parseFloat((data.price*data.holdings)).toFixed(2))
-})
+  totalSum = parseFloat(totalSum).toFixed(2);
 
-for (var i = 0; i < assetValues.length; i++) {
-  totalSum += +assetValues[i]
-}
-
-totalSum = parseFloat(totalSum).toFixed(2)
-
-console.log(assetValues)
+  console.log(assetValues);
 
   return (
     <div className="ranking-page">
-
       <div class="card text-center">
         <div class="card-body">
-          <h3>Total Portfolio Value</h3> 
+          <h3>Total Portfolio Value</h3>
           <p class="card-text">${totalSum}</p>
-          <a href="#" class="btn btn-primary" onClick={addTransaction}>Add Transaction</a>
+          <a href="#" class="btn btn-primary" onClick={addTransaction}>
+            Add Transaction
+          </a>
         </div>
       </div>
-
 
       <table class="table">
         <thead>
@@ -94,11 +95,9 @@ console.log(assetValues)
               <tr>
                 <th scope="row">{i + 1}</th>
                 <td>
-                  <img className="logos" src={data.image} alt="" /> 
+                  <img className="logos" src={data.image} alt="" />
                 </td>
-                <td>
-                  {data.asset}
-                </td>
+                <td>{data.asset}</td>
                 <td>${data.price}</td>
                 <td>
                   {data.holdings} {data.symbol}
