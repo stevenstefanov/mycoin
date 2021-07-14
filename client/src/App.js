@@ -1,4 +1,3 @@
-// import React, { useState } from "react";
 import React from "react";
 import "./App.css";
 import Nav from "./components/Nav";
@@ -8,13 +7,14 @@ import AddAsset from "./components/AddAsset";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import Coin from "./components/Rankings";
-// import { Switch, Route } from "react-router-dom";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import News from "./components/News";
 import ThreeScene from "./Utils/threeScene";
 import "./assets/css/reset.css";
 import "./assets/css/style.css";
-// import { Router } from "express";
+
+import Transaction from "./components/Transaction";
+
 
 function App() {
   return (
@@ -35,6 +35,10 @@ function App() {
       <Route exact path="/rankings">
         <Nav />
         <Coin />
+      </Route>
+
+      <Route exact path="/transaction">
+        <Transaction/>
       </Route>
 
       <Route exact path="/signup">

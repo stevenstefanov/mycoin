@@ -3,9 +3,6 @@ const { User, Coin } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
-
-  console.log("hello")
-
   try {
     // Get all coins and JOIN with user data
     const coinData = await Coin.findAll({
@@ -19,13 +16,7 @@ router.get('/', async (req, res) => {
         },
       ],
     });
-    // // Serialize data so the template can read it
-    // const coins = coinData.map((coin) => coin.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
-
-    console.log(coinData)
-    
     res.json(coinData);
   } catch (err) {
     res.status(500).json(err);
@@ -89,26 +80,6 @@ router.put('/:symbol', async (req, res) => {
   } catch (err) {
       res.status(500).json(err);
     };
-});
-
-router.delete('/:id', withAuth, async (req, res) => {
-  try {
-    const coinData = await Coin.destroy({
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
-    });
-
-    if (!coinData) {
-      res.status(404).json({ message: 'No coin found with this ID!' });
-      return;
-    }
-
-    res.status(200).json(coinData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
 });
 
 module.exports = router;
