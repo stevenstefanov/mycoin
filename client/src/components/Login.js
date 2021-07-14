@@ -28,7 +28,7 @@ function Login() {
     <section className="login">
       <div className="input-group mb-3">
         <div className="card-body">
-          <h5 className="card-title">Sign In</h5>
+          <h5 className="login-title">Sign In</h5>
           <form className="login-form" onSubmit={login}>
             <div className="input-group mb-3 sign-in">
               <input

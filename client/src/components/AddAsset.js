@@ -34,51 +34,73 @@ export default function AddAsset() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    if ((symbolList.includes(formInputs.symbol)) && (formInputs.transactionType === "bought")) {
+
+    if (
+      symbolList.includes(formInputs.symbol) &&
+      formInputs.transactionType === "bought"
+    ) {
       API.postNewTransaction(formInputs, formInputs.symbol);
-    } else if ((symbolList.includes(formInputs.symbol)) && (formInputs.transactionType === "sold")) {
+    } else if (
+      symbolList.includes(formInputs.symbol) &&
+      formInputs.transactionType === "sold"
+    ) {
       API.postNewSale(formInputs, formInputs.symbol);
     } else {
       window.alert("Please provide a valid symbol");
     }
-    
-    document.location.replace('/portfolio')
-  }
+
+    document.location.replace("/portfolio");
+  };
 
   const handleInputChange = (e) => {
     setFormInputs({ ...formInputs, [e.target.name]: e.target.value });
-    console.log(formInputs)
+    console.log(formInputs);
   };
 
   return (
-    <div>
-      <form>
+    <div className="container">
+      <form className="asset-content">
+        <h5 className="asset-title">Asset Transactions</h5>
+        <div className="form-group row">
+          <fieldset className="form-group">
+            <div className="row" onChange={handleInputChange}>
+              <legend className="col-form-label col-sm-2 pt-0">
+                Type of Transaction
+              </legend>
+              <div className="col-sm-10" onChange={handleInputChange}>
+                <div className="form-check" onChange={handleInputChange}>
+                  <input
+                    className="form-check-input"
+                    type="radio"
+                    name="transactionType"
+                    id="gridRadios1"
+                    value="bought"
+                    onChange={handleInputChange}
+                  />
+                  <label class="form-check-label" for="gridRadios1">
+                    Bought
+                  </label>
+                </div>
+                <div className="form-check" onChange={handleInputChange}>
+                  <input
+                    className="form-check-input"
+                    type="radio"
+                    name="transactionType"
+                    id="gridRadios2"
+                    value="sold"
+                    onChange={handleInputChange}
+                  />
+                  <label className="form-check-label" for="gridRadios2">
+                    Sold
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
 
         <div class="form-group row">
-        <fieldset class="form-group">
-    <div class="row" onChange={handleInputChange}>
-      <legend class="col-form-label col-sm-2 pt-0">Type of Transaction</legend>
-      <div class="col-sm-10" onChange={handleInputChange}>
-        <div class="form-check" onChange={handleInputChange}>
-          <input class="form-check-input" type="radio" name="transactionType" id="gridRadios1" value="bought" onChange={handleInputChange}/>
-          <label class="form-check-label" for="gridRadios1">
-            Bought
-          </label>
-        </div>
-        <div class="form-check" onChange={handleInputChange}>
-          <input class="form-check-input" type="radio" name="transactionType" id="gridRadios2" value="sold" onChange={handleInputChange}/>
-          <label class="form-check-label" for="gridRadios2">
-            Sold
-          </label>
-        </div>
-      </div>
-    </div>
-  </fieldset>
-        </div>
-
-        <div class="form-group row">
-          <label for="symbol" class="col-sm-2 col-form-label">
+          <label for="symbol" className="col-sm-2 col-form-label">
             Asset Symbol
           </label>
           <div className="col-sm-10">
@@ -91,14 +113,14 @@ export default function AddAsset() {
           </div>
         </div>
 
-        <div classNameName="form-group row">
-          <label htmlFor="asset" classNameName="col-sm-2 col-form-label">
+        <div className="form-group row">
+          <label htmlFor="asset" className="col-sm-2 col-form-label">
             Asset Name
           </label>
-          <div classNameName="col-sm-10">
+          <div className="col-sm-10">
             <input
               onChange={handleInputChange}
-              classNameName="form-control"
+              className="form-control"
               name="asset"
               placeholder="Enter the name of the crypto"
             />
@@ -136,7 +158,7 @@ export default function AddAsset() {
             <button
               onClick={handleSubmit}
               type="submit"
-              className="btn btn-primary"
+              className="btn btn-outline-light btn-asset"
             >
               Add Transaction
             </button>
@@ -145,4 +167,4 @@ export default function AddAsset() {
       </form>
     </div>
   );
-  }
+}
