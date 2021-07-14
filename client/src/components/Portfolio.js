@@ -42,12 +42,41 @@ export default function Portfolio() {
         };
         return obj;
       });
-      setFullUserData(data);
-    }
+      setFullUserData(data)
+  }
   }, [userCoins]);
+
+  const addTransaction = () => {
+    document.location.replace('/home')
+  }
+
+  let totalSum = 0
+  
+  const assetValues = fullUserData.map(data => {
+    return(
+      parseFloat((data.price*data.holdings)).toFixed(2))
+})
+
+for (var i = 0; i < assetValues.length; i++) {
+  totalSum += +assetValues[i]
+}
+
+totalSum = parseFloat(totalSum).toFixed(2)
+
+console.log(assetValues)
 
   return (
     <div className="ranking-page">
+
+      <div class="card text-center">
+        <div class="card-body">
+          <h3>Total Portfolio Value</h3> 
+          <p class="card-text">${totalSum}</p>
+          <a href="#" class="btn btn-primary" onClick={addTransaction}>Add Transaction</a>
+        </div>
+      </div>
+
+
       <table class="table">
         <thead>
           <tr>
