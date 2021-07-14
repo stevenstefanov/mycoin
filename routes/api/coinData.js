@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const rp = require('request-promise');
 
-
 router.get('/', (req, res) => {
     const requestOptions = {
         method: 'GET',
@@ -19,10 +18,8 @@ router.get('/', (req, res) => {
       };
       
       rp(requestOptions).then(data => {
-        // console.log('API call data:', data);
         res.json(data);
       }).catch((err) => {
-        // console.log('API call error:', err.message);
         res.json(err.message);
       });
 });
