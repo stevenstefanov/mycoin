@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { indexOf } from "lodash";
 
-export default function Portfolio({}) {
-  const [coinGecko, setCoinGecko] = useState([]);
+export default function Portfolio() {
+  const [coinGecko, setCoinGecko] = useState({});
   const [userCoins, setUserCoins] = useState([]);
   const [fullUserData, setFullUserData] = useState([]);
 

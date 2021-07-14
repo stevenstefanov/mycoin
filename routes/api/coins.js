@@ -82,7 +82,7 @@ router.post('/:symbol', withAuth,  async (req, res) => {
 
 router.put('/:symbol', async (req, res) => {
   try {
-    const coin  = await Coin.increment(
+    const coin  = await Coin.decrement(
       'holdings', { by: req.body.holdings, where: {symbol: req.body.symbol} }
     )
     res.status(200).json(coin);
