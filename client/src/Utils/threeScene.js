@@ -21,7 +21,6 @@ extend ({OrbitControls})
 
 
 function StarBackground() {
-    // const [hovered, setHovered] = useState(false)
 
     const ref= useRef()
 
@@ -30,8 +29,6 @@ function StarBackground() {
 
 return(
     <mesh 
-    // onPointerOver={setHovered(true)} 
-    // onPointerOut={setHovered(false)}
     ref={ref} position={[x, y, z]}>
     <sphereGeometry attach='geometry' 
     args={[1, 1, 1]}  />
@@ -61,7 +58,6 @@ function Orbit () {
     }
     return(
         <>
-  
         <OrbitControls
         minPolarAngle =  {Math.PI/2}
 		maxPolarAngle =  {Math.PI/2}
@@ -90,7 +86,6 @@ function Group ({time, ...props}) {
     usePromise(ms => new Promise(res => setTimeout(res, ms)), [time])
     useFrame(() => {
         ref.current.rotation.z += 0.01
-        // ref.current.rotateOnAxis(axis, 40)
 
     });
 
@@ -107,7 +102,6 @@ function SmallCoin ({time, ...props}) {
     useFrame(() => {
         ref.current.rotation.x = Math.PI/2;
         ref.current.rotation.z += 0.02
-        // ref.current.rotateY = 10
     })
     const coinText = useMemo(
         () => new TextureLoader().load(coinmap),
@@ -173,13 +167,9 @@ function ThreeScene() {
     })
     )
 
-
     return(
         // <>
-        <Canvas id='canvas' style={{backgroundImage: `url(${background})`}}
-            
-        >
-        
+        <Canvas id='canvas' style={{backgroundImage: `url(${background})`}}>
         
         <Suspense fallback={null}>
   
@@ -191,7 +181,6 @@ function ThreeScene() {
         
         </Canvas>
      
-    
     )
 }
 

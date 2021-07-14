@@ -1,32 +1,22 @@
 import React, { useEffect, useState } from "react";
 import API from "../Utils/API";
-// import {useParams} from 'react-router-dom'
 import axios from "axios";
 
 export default function AddAsset() {
   const [symbolList, setSymbolList] = useState([]);
-  // const [ coinMap, setCoinMap ] = useState({});
   const [formInputs, setFormInputs] = useState({});
-  // const {symbol} = useParams()
 
   useEffect(() => {
-    console.log("test");
     axios
       .get("https://api.coingecko.com/api/v3/coins/list?include_platform=false")
       .then((res) => {
-        console.log(res.data);
-        // const coinMap = res.data.reduce( (acc, coin) => ({ ...acc, [coin.symbol]: coin.name }), {})
         const coinSymbols = res.data.map((data) => {
           return data.symbol;
         });
         const coinNames = res.data.map((data) => {
           return data.name;
         });
-        // setCoinMap(coinMap);
-        // console.log(coinMap)
         setSymbolList(coinSymbols);
-        // console.log(coinSymbols)
-        // console.log(coinNames)
 
         var symbolNameArray = {};
         for (var i = 0; i < coinSymbols.length; i++) {
@@ -38,51 +28,57 @@ export default function AddAsset() {
             symbolNameArray[id] += count;
           }
         }
-
-        console.log(symbolNameArray);
       })
       .catch((error) => console.log(error));
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (symbolList.includes(formInputs.symbol)) {
-      // formInputs.asset = coinMap[formInputs.symbol];
+    
+    if ((symbolList.includes(formInputs.symbol)) && (formInputs.transactionType === "bought")) {
       API.postNewTransaction(formInputs, formInputs.symbol);
-      // .then(window.location.replace("/portfolio"))
+    } else if ((symbolList.includes(formInputs.symbol)) && (formInputs.transactionType === "sold")) {
+      API.postNewSale(formInputs, formInputs.symbol);
     } else {
       window.alert("Please provide a valid symbol");
     }
-    // check if user provided symbol matches one in the symbolList array
-  };
-  // check if user provided symbol matches one in the symbolList array
+    
+    document.location.replace('/portfolio')
+  }
 
   const handleInputChange = (e) => {
     setFormInputs({ ...formInputs, [e.target.name]: e.target.value });
+    console.log(formInputs)
   };
 
   return (
     <div>
       <form>
-        <div className="dropdown col-sm-2 col-form-label">
-          <button
-            className="btn btn-primary dropdown-toggle "
-            type="button"
-            id="dropdownMenuButton"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
+
+        <div class="form-group row">
+        <fieldset class="form-group">
+    <div class="row" onChange={handleInputChange}>
+      <legend class="col-form-label col-sm-2 pt-0">Type of Transaction</legend>
+      <div class="col-sm-10" onChange={handleInputChange}>
+        <div class="form-check" onChange={handleInputChange}>
+          <input class="form-check-input" type="radio" name="transactionType" id="gridRadios1" value="bought" onChange={handleInputChange}/>
+          <label class="form-check-label" for="gridRadios1">
             Bought
-          </button>
-          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a className="dropdown-item" href="#">
-              Sold
-            </a>
-          </div>
+          </label>
         </div>
-        <div className="form-group row">
-          <label for="symbol" className="col-sm-2 col-form-label">
+        <div class="form-check" onChange={handleInputChange}>
+          <input class="form-check-input" type="radio" name="transactionType" id="gridRadios2" value="sold" onChange={handleInputChange}/>
+          <label class="form-check-label" for="gridRadios2">
+            Sold
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+        </div>
+
+        <div class="form-group row">
+          <label for="symbol" class="col-sm-2 col-form-label">
             Asset Symbol
           </label>
           <div className="col-sm-10">
@@ -90,7 +86,7 @@ export default function AddAsset() {
               onChange={handleInputChange}
               className="form-control"
               name="symbol"
-              placeholder="BTC"
+              placeholder="Enter the coin's symbol in lowercase (e.g. for Bitcoin, enter btc)"
             />
           </div>
         </div>
@@ -104,20 +100,21 @@ export default function AddAsset() {
               onChange={handleInputChange}
               classNameName="form-control"
               name="asset"
-              placeholder="Bitcoin"
+              placeholder="Enter the name of the crypto"
             />
           </div>
         </div>
-        <div className="form-group row">
-          <label for="holdings" className="col-sm-2 col-form-label">
-            Amount Purchased
+
+        <div class="form-group row">
+          <label for="holdings" class="col-sm-2 col-form-label">
+            Amount Bought/Sold
           </label>
           <div className="col-sm-10">
             <input
               onChange={handleInputChange}
               className="form-control"
               name="holdings"
-              placeholder=".5344"
+              placeholder="Enter the number of tokens you bought/sold"
             />
           </div>
         </div>
@@ -130,7 +127,7 @@ export default function AddAsset() {
               onChange={handleInputChange}
               className="form-control"
               name="dollarsSpent"
-              placeholder="$10,000"
+              placeholder="Enter the amount of USD you spent on this transaction"
             />
           </div>
         </div>
@@ -148,4 +145,4 @@ export default function AddAsset() {
       </form>
     </div>
   );
-}
+  }

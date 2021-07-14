@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { indexOf } from "lodash";
 
-export default function Portfolio({}) {
-  const [coinGecko, setCoinGecko] = useState([]);
+export default function Portfolio() {
+  const [coinGecko, setCoinGecko] = useState({});
   const [userCoins, setUserCoins] = useState([]);
   const [fullUserData, setFullUserData] = useState([]);
 
@@ -13,11 +12,9 @@ export default function Portfolio({}) {
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
       )
       .then((res) => {
-        console.log(res.data);
         axios
           .get("/api/coins/")
           .then((res) => {
-            console.log(res.data);
             setUserCoins(res.data);
             //deconstruct res.data
           })
@@ -31,11 +28,9 @@ export default function Portfolio({}) {
   useEffect(() => {
     if (userCoins.length > 0) {
       const data = userCoins.map((coin) => {
-        console.log(coin);
         const match = coinGecko.filter(
           (cg) => cg.symbol === coin.symbol.toLowerCase()
         )[0];
-        console.log(match);
         const obj = {
           ...coin,
           image: match.image,
@@ -66,7 +61,7 @@ export default function Portfolio({}) {
               <tr>
                 <th scope="row">{i + 1}</th>
                 <td>
-                  <img className="logos" src={data.image} alt="" /> 
+                  <img className="logos" src={data.image} alt=""/> 
                 </td>
                 <td>
                   {data.asset}

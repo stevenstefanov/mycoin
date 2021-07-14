@@ -2,8 +2,6 @@ const router = require("express").Router();
 const path = require("path");
 const apiRoutes = require("./api");
 
-console.log("OUTER INDEX");
-
 // API Routes
 router.use("/api", apiRoutes);
 

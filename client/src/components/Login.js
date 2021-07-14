@@ -17,7 +17,7 @@ function Login() {
         console.log(response);
         console.log("logged in");
         sessionStorage.setItem("isLoggedIn", true);
-        document.location.replace("/home");
+        document.location.replace("/portfolio");
       } else {
         console.log("login failed");
       }
