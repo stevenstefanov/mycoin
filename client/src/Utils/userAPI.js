@@ -8,11 +8,17 @@ export default {
     return axios.post("/api/users/", data);
   },
   getNews: function (search) {
-    return axios.get(`http://api.mediastack.com/v1/news?access_key=b586f17605bd4e43196259000bb30837&keywords=${search}&countries=us,gb
-        `);
+    let url =
+      process.env.NODE_ENV === "production"
+        ? `https://api.mediastack.com/v1/news?access_key=b586f17605bd4e43196259000bb30837&keywords=${search}&countries=us,gb`
+        : `http://api.mediastack.com/v1/news?access_key=b586f17605bd4e43196259000bb30837&keywords=${search}&countries=us,gb`;
+    return axios.get(url);
   },
   getStaticNews: function () {
-    return axios.get(`http://api.mediastack.com/v1/news?access_key=b586f17605bd4e43196259000bb30837&keywords=cryptocurrency&countries=us,gb
-        `);
+    let url =
+      process.env.NODE_ENV === "production"
+        ? `https://api.mediastack.com/v1/news?access_key=b586f17605bd4e43196259000bb30837&keywords=cryptocurrency&countries=us,gb`
+        : `http://api.mediastack.com/v1/news?access_key=b586f17605bd4e43196259000bb30837&keywords=cryptocurrency&countries=us,gb`;
+    return axios.get(url);
   },
 };
