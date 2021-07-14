@@ -13,6 +13,9 @@ import ThreeScene from "./Utils/threeScene";
 import "./assets/css/reset.css";
 import "./assets/css/style.css";
 
+import Transaction from "./components/Transaction";
+
+
 function App() {
   return (
     <Router>
@@ -32,6 +35,10 @@ function App() {
       <Route exact path="/rankings">
         <Nav />
         <Coin />
+      </Route>
+
+      <Route exact path="/transaction">
+        <Transaction/>
       </Route>
 
       <Route exact path="/signup">

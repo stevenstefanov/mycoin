@@ -54,6 +54,7 @@ export default function AddAsset() {
   return (
     <div>
       <form>
+
         <div class="form-group row">
         <fieldset class="form-group">
     <div class="row" onChange={handleInputChange}>
@@ -80,61 +81,62 @@ export default function AddAsset() {
           <label for="symbol" class="col-sm-2 col-form-label">
             Asset Symbol
           </label>
-          <div class="col-sm-10">
+          <div className="col-sm-10">
             <input
               onChange={handleInputChange}
-              class="form-control"
+              className="form-control"
               name="symbol"
               placeholder="Enter the coin's symbol in lowercase (e.g. for Bitcoin, enter btc)"
             />
           </div>
         </div>
 
-        <div className="form-group row">
-          <label htmlFor="asset" className="col-sm-2 col-form-label">
+        <div classNameName="form-group row">
+          <label htmlFor="asset" classNameName="col-sm-2 col-form-label">
             Asset Name
           </label>
-          <div className="col-sm-10">
+          <div classNameName="col-sm-10">
             <input
               onChange={handleInputChange}
-              className="form-control"
+              classNameName="form-control"
               name="asset"
               placeholder="Enter the name of the crypto"
             />
           </div>
         </div>
+
         <div class="form-group row">
           <label for="holdings" class="col-sm-2 col-form-label">
             Amount Bought/Sold
           </label>
-          <div class="col-sm-10">
+          <div className="col-sm-10">
             <input
               onChange={handleInputChange}
-              class="form-control"
+              className="form-control"
               name="holdings"
               placeholder="Enter the number of tokens you bought/sold"
             />
           </div>
         </div>
-        <div class="form-group row">
-          <label for="dollarsSpent" class="col-sm-2 col-form-label">
+        <div className="form-group row">
+          <label for="dollarsSpent" className="col-sm-2 col-form-label">
             Dollars Spent
           </label>
-          <div class="col-sm-10">
+          <div className="col-sm-10">
             <input
               onChange={handleInputChange}
-              class="form-control"
+              className="form-control"
               name="dollarsSpent"
               placeholder="Enter the amount of USD you spent on this transaction"
             />
           </div>
         </div>
-        <div class="form-group row">
-          <div class="col-sm-2 col-form-label">
+        <div className="form-group row">
+          <div className="col-sm-2 col-form-label">
             <button
               onClick={handleSubmit}
               type="submit"
-              class="btn btn-primary"
+              className="btn btn-primary"
             >
               Add Transaction
             </button>
