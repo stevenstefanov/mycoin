@@ -12,9 +12,11 @@ export default function Portfolio() {
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
       )
       .then((res) => {
+        console.log(res.data);
         axios
           .get("/api/coins/")
           .then((res) => {
+            console.log(res.data);
             setUserCoins(res.data);
             //deconstruct res.data
           })
@@ -28,9 +30,11 @@ export default function Portfolio() {
   useEffect(() => {
     if (userCoins.length > 0) {
       const data = userCoins.map((coin) => {
+        console.log(coin);
         const match = coinGecko.filter(
           (cg) => cg.symbol === coin.symbol.toLowerCase()
         )[0];
+        console.log(match);
         const obj = {
           ...coin,
           image: match.image,
@@ -64,7 +68,6 @@ console.log(assetValues)
   return (
     <div className="ranking-page">
 
-
       <div class="card text-center">
         <div class="card-body">
           <h3>Total Portfolio Value</h3> 
@@ -75,9 +78,6 @@ console.log(assetValues)
 
 
       <table class="table">
-
-      <table className="table">
-
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -94,7 +94,7 @@ console.log(assetValues)
               <tr>
                 <th scope="row">{i + 1}</th>
                 <td>
-                  <img className="logos" src={data.image} alt=""/> 
+                  <img className="logos" src={data.image} alt="" /> 
                 </td>
                 <td>
                   {data.asset}
