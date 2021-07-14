@@ -27,7 +27,7 @@ function SignUp() {
     <section className="sign-up-form">
       <div className="input-group mb-3 sign-up-content">
         <div className="card-body">
-          <h5 className="card-title">Sign Up</h5>
+          <h5 className="sign-up-title">Sign Up</h5>
           <form onSubmit={signUp}>
             <div className="input-group mb-3 sign-up">
               <input

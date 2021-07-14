@@ -20,16 +20,10 @@ export default function Nav() {
     <nav className="navbar-light bg-light shadow-lg p-3 nav-content">
       <div className="container-fluid">
         <ul className="nav nav-tabs justify-content-end nav-content-list">
-          
           <li className="nav-item">
-       
-            <a href = '/'
-              className="nav-link"
-              activeClassName="nav-link active">
-            My Coin
+            <a href="/" className="nav-link" activeClassName="nav-link active">
+              My Coin
             </a>
-
-       
           </li>
 
           <li className="nav-item">
@@ -39,7 +33,6 @@ export default function Nav() {
               className="nav-link"
               activeClassName="nav-link active"
             >
-              
               My Portfolio
             </NavLink>
           </li>
@@ -51,22 +44,22 @@ export default function Nav() {
               className="nav-link"
               activeClassName="nav-link active"
             >
-              
               Coin Rankings
             </NavLink>
           </li>
-          { data && (
-          <li className="nav-item">
-            <NavLink
-              exact
-              to="/transaction"
-              className="nav-link"
-              activeClassName="nav-link active"
-            >
-              My Transactions
-            </NavLink>
-          </li>)}
-          
+          {data && (
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/transaction"
+                className="nav-link"
+                activeClassName="nav-link active"
+              >
+                My Transactions
+              </NavLink>
+            </li>
+          )}
+
           <li className="nav-item">
             <NavLink
               exact
@@ -80,8 +73,7 @@ export default function Nav() {
           {!data && (
             <li className="nav-item">
               <NavLink exact to="/signup">
-                <button className="btn btn-outline-dark" href="/signup">
-                  
+                <button className="btn btn-outline-dark btn-nav" href="/signup">
                   Sign Up
                 </button>
               </NavLink>
@@ -91,13 +83,15 @@ export default function Nav() {
           {!data && (
             <li className="nav-item">
               <NavLink exact to="/login">
-                <button className="btn btn-outline-dark">Sign In</button>
+                <button className="btn btn-outline-dark btn-nav">
+                  Sign In
+                </button>
               </NavLink>
             </li>
           )}
           {data && (
             <li className="nav-item">
-              <button className="nav-link" onClick={logout}>
+              <button className="btn btn-outline-dark btn-nav" onClick={logout}>
                 Logout
               </button>
             </li>

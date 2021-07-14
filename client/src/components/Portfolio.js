@@ -70,9 +70,13 @@ export default function Portfolio() {
     <div className="ranking-page">
       <div class="card text-center">
         <div class="card-body">
-          <h3>Total Portfolio Value</h3>
-          <p class="card-text">${totalSum}</p>
-          <a href="#" class="btn btn-primary" onClick={addTransaction}>
+          <h4>Total Portfolio Value</h4>
+          <p class="card-text port-val">${totalSum}</p>
+          <a
+            href="#"
+            class="btn btn-outline-dark btn-port-val"
+            onClick={addTransaction}
+          >
             Add Transaction
           </a>
         </div>
