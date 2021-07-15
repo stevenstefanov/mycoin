@@ -53,7 +53,7 @@ const Chart = () => {
     })
 
     return (
-        <div className="chart-size">
+        <div className="chart-size donut">
             <Doughnut
                 data={{
                     labels: assetNames,

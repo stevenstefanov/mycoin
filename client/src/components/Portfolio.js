@@ -69,7 +69,7 @@ export default function Portfolio() {
   return (
     <div className="ranking-page">
       <div class="card text-center">
-        <div class="card-body">
+        <div class="card-body value-banner">
           <h4>Total Portfolio Value</h4>
           <p class="card-text port-val">${totalSum}</p>
           <a
@@ -82,7 +82,7 @@ export default function Portfolio() {
         </div>
       </div>
 
-      <table class="table">
+      <table class="table portfolio-table">
         <thead>
           <tr>
             <th scope="col">#</th>
