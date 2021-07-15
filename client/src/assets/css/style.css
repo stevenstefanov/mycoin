@@ -229,6 +229,9 @@ tr {
   width: 1000px;
 }
 
-.market-cap-rankings {
-  background-color: #4b4f54
+.market-cap-rankigns {
+  width:75%;
+  border-radius: 30px;
+  border: 1px solid black;
+  margin: auto;
 }

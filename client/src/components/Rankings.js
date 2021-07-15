@@ -17,6 +17,8 @@ function Rankings() {
       .catch((error) => console.log(error));
   }, []);
 
+  console.log(setCoin)
+
   return (
     <div className="market-cap-rankigns">
       <table class="table">
@@ -27,7 +29,9 @@ function Rankings() {
             <th scope="col">Coin</th>
             <th scope="col">Symbol</th>
             <th scope="col">Price</th>
+            <th scope="col">Market Cap</th>
             <th scope="col">Volume</th>
+
           </tr>
         </thead>
         {coin.map((data, i) => {
@@ -41,6 +45,7 @@ function Rankings() {
                 <td>{data.name}</td>
                 <td>{data.symbol}</td>
                 <td>${data.current_price}</td>
+                <td>${data.market_cap}</td>
                 <td>{data.total_volume}</td>
               </tr>
             </tbody>
