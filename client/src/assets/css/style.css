@@ -146,7 +146,7 @@ tr {
 .container {
   display: flex;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
   min-width: 100vw;
   background-color: var(--color);
   color: white;
@@ -172,4 +172,40 @@ tr {
   width: 160px;
   margin-top: 15px;
   margin-left: 300px;
+}
+
+/* news */
+/* .news-section {
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: var(--color);
+  color: white;
+} */
+
+.news-card {
+  margin-left: 50px;
+}
+
+.news-search {
+  height: 30px !important;
+  width: 400px !important;
+  margin-top: 35px;
+}
+
+.news-btn {
+  margin-bottom: 4px;
+}
+
+.news-content p {
+  padding: 0;
+  width: 1000px;
+}
+
+.news-content img {
+  margin-bottom: 20px;
+  width: 500px;
+}
+
+.news-content hr {
+  width: 1000px;
 }
