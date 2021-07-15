@@ -119,9 +119,19 @@ tr {
 }
 
 .ranking-page .table {
-  background-color: var(--color);
+  background-color: #4b4f54;
+  border-radius: 30px;
+  margin-left: 10px;
+  width: 60%;
+  float: left;
   color: white;
 }
+
+.donut {
+  width: 35%;
+  float: left;
+}
+
 
 .transaction {
   height: 100vh;
@@ -174,6 +184,15 @@ tr {
   margin-left: 300px;
 }
 
+.value-banner {
+  border: 5px solid orange;
+  border-radius: 20px;
+  width: 75%;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
 /* news */
 /* .news-section {
   min-height: 100vh;
@@ -208,4 +227,8 @@ tr {
 
 .news-content hr {
   width: 1000px;
+}
+
+.market-cap-rankings {
+  background-color: #4b4f54
 }

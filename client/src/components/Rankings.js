@@ -18,7 +18,7 @@ function Rankings() {
   }, []);
 
   return (
-    <div className="ranking-page">
+    <div className="market-cap-rankigns">
       <table class="table">
         <thead>
           <tr>
