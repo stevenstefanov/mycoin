@@ -132,4 +132,4 @@ Once you open the repository, you will find
 - Bootstrap
 - Heroku
 
-Copyright (c) [2021] [Justin Ng, Sabrina Sharmin, Josh Soto, Steven Stefanov]
+Copyright (c) [2021] [Justin Ng, Steven Stefanov, Sabrina Sharmin, Josh Soto]
