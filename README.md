@@ -29,7 +29,7 @@ As a cryptocurrency investor and trader, I want to be able to track all my crypt
 
 ### Deployed Application URL
 
-[MyCoin](https://my-coin-app-deployed.herokuapp.com)
+[MyCoin](https://mycoin-react.herokuapp.com/)
 
 ## Description
 
